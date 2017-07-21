@@ -8,7 +8,9 @@ class ProductTemplate(models.Model):
     product_color_id = fields.Many2one(
         'product.color',
         string='Color',
-        help='Select a color for this product'
+        help='Select a color for this product',
+        related='product_variant_ids.product_color_id',
+        readonly=True
     )
     product_options_ids = fields.Many2many(
         'product.options',
