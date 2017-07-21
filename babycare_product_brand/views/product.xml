@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="product_search_form_view_inherited" model="ir.ui.view">
+			<field name="name">Inherited product_brand - ProductProduct Search</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product_brand.product_search_form_view" />
+			<field name="arch" type="xml">
+				<field name="product_brand_id" position="replace" />
+				<filter string="Brand" name="groupby_brand" domain="[]"
+						context="{'group_by' : 'product_brand_id'}" position="replace" />
+			</field>
+        </record>
+
+        <record id="view_product_template_search_brand_inherited" model="ir.ui.view">
+			<field name="name">Inherited product_brand - ProductTemplate Search</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product_brand.view_product_template_search_brand" />
+			<field name="arch" type="xml">
+				<field name="product_brand_id" position="replace" />
+				<filter string="Brand" name="groupby_brand" domain="[]"
+						context="{'group_by' : 'product_brand_id'}" position="replace" />
+			</field>
+        </record>
+
+		<record id="view_product_template_kanban_brand_inherited" model="ir.ui.view">
+			<field name="name">Inherited product_brand - ProductTemplate Kanban</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product_brand.view_product_template_kanban_brand" />
+			<field name="arch" type="xml">
+				<field name="product_brand_id" position="replace" />
+			</field>
+        </record>
+
+        <record id="view_product_variant_kanban_brand_inherited" model="ir.ui.view">
+            <field name="name">Inherited product_brand - ProductProduct Kanban</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product_brand.view_product_variant_kanban_brand" />
+            <field name="arch" type="xml">
+            	<field name="product_brand_id" position="replace" />
+            </field>
+        </record>
+
+		<record id="product_template_form_brand_add_inherited" model="ir.ui.view">
+			<field name="name">Inherited product_brand - ProductTemplate Form</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product_brand.product_template_form_brand_add" />
+			<field name="arch" type="xml">
+				<field name="product_brand_id" position="replace" />
+			</field>
+		</record>
+
+		<record id="view_product_template_tree_brand_inherited" model="ir.ui.view">
+			<field name="name">Inherited product_brand - ProductTemplate Tree</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product_brand.view_product_template_tree_brand" />
+			<field name="arch" type="xml">
+				<field name="product_brand_id" position="replace" />
+			</field>
+		</record>
+
+		<record id="view_product_variant_tree_brand_inherited" model="ir.ui.view">
+			<field name="name">Inherited product_brand - ProductProduct Tree</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product_brand.view_product_variant_tree_brand" />
+			<field name="arch" type="xml">
+				<field name="product_brand_id" position="replace" />
+			</field>
+		</record>
+
+		<record id="product_template_form_attribute_manager" model="ir.ui.view">
+			<field name="name">Inherited mob_extra_images - ProductTemplate Form Attribute Manager</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="mob_extra_images.product_extra_images_ids_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//page[@string='Magento']/separator[@string='Classification Images']" position="before">
+					<separator string="Attribute Manager" />
+					<div>
+						<label string="Attribute values can be added to the variant." />
+					</div>
+                </xpath>
+			</field>
+		</record>
+
+		<record id="product_product_form_attribute_manager" model="ir.ui.view">
+			<field name="name">Inherited mob_extra_images - ProductProduct Form Attribute Manager</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="mob_extra_images.pro_extra_images_ids_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//page[@string='Magento']/separator[@string='Classification Images']" position="before">
+					<separator string="Attribute Manager" />
+					<div>
+						<label string="New Attribute Values added? Before Product Export/Update to Magento" />
+						<button type="object" name="open_magento_synchronization" string="Sync All Attributes" icon="gtk-go-forward" class="oe_inline oe_link" />
+					</div>
+					<group>
+						<field name="product_brand_id" placeholder="Brand" options="{'no_create': True}" />
+						<field name="product_color_id" placeholder="Color" options="{'no_create': True}" />
+						<field name="product_options_ids" placeholder="Options" options="{'no_create': True}" widget="many2many_tags" />
+					</group>
+                </xpath>
+			</field>
+		</record>
+
+		<record id="product_brand.action_product_brand" model="ir.actions.act_window">
+            <field name="name">Brand</field>
+            <field name="res_model">product.brand</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+            	<p class="oe_view_nocontent_create">
+            		Click to define a new brand.
+            	</p>
+            	<p>
+            		You must define a brand before you can add a brand to a product.
+            	</p>
+            </field>
+        </record>
+
+        <record id="product_brand.menu_product_brand" model="ir.ui.menu">
+			<field name="action" eval="False" />
+		</record>
+
+		<menuitem
+			id="menu_product_attribute_manager"
+			name="Attribute Manager"
+			parent="base.menu_base_config"
+			sequence="100" />
+		<menuitem
+			id="menu_attribute_manager_product_brand"
+			name="Brands"
+			action="product_brand.action_product_brand"
+			parent="menu_product_attribute_manager"
+			sequence="10" />
+	</data>
+</openerp>

@@ -1,0 +1,264 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* babycare_product_brand
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-11 11:11+0000\n"
+"PO-Revision-Date: 2017-07-11 11:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: babycare_product_brand
+#: model:ir.actions.act_window,help:babycare_product_brand.action_product_attributeset
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new attribute set.\n"
+"                </p>\n"
+"                <p>\n"
+"                    You must define an attribute set before you can add an option.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Klik hier voor het aanmaken van een nieuwe attribuutset.\n"
+"                </p>\n"
+"                <p>\n"
+"                    Een attribuutset is nodig om een optie aan te maken.\n"
+"                </p>\n"
+"            "
+
+#. module: babycare_product_brand
+#: model:ir.actions.act_window,help:babycare_product_brand.action_product_color
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new color.\n"
+"                </p>\n"
+"                <p>\n"
+"                    You must define a color before you can add a color to a product.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Klik hier voor het aanmaken van een nieuwe kleur.\n"
+"                </p>\n"
+"                <p>\n"
+"                    Je moet een kleur aanmaken voordat deze aan een product kan worden toegevoegd.\n"
+"                </p>\n"
+"            "
+
+#. module: babycare_product_brand
+#: model:ir.actions.act_window,help:babycare_product_brand.action_product_options
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new option.\n"
+"                </p>\n"
+"                <p>\n"
+"                    You must define an option before you can add an option to a product.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Klik hier voor het aanmaken van een nieuwe optie.\n"
+"                </p>\n"
+"                <p>\n"
+"                    Je moet een optie aanmaken voordat deze aan een product kan worden toegevoegd.\n"
+"                </p>\n"
+"            "
+
+#. module: babycare_product_brand
+#: field:product.options,attributeset_id:0
+msgid "Attribute"
+msgstr "Attribuut"
+
+#. module: babycare_product_brand
+#: model:ir.ui.menu,name:babycare_product_brand.menu_product_attribute_manager
+#: view:product.product:babycare_product_brand.product_product_form_attribute_manager
+#: view:product.template:babycare_product_brand.product_template_form_attribute_manager
+msgid "Attribute Manager"
+msgstr "Attribuut Manager"
+
+#. module: babycare_product_brand
+#: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributeset
+msgid "Attribute Sets"
+msgstr "Attribuutset"
+
+#. module: babycare_product_brand
+#: view:product.template:babycare_product_brand.product_template_form_attribute_manager
+msgid "Attribute values can be added to the variant."
+msgstr "Attribuutwaarden worden toegevoegd op de variant."
+
+#. module: babycare_product_brand
+#: view:product.product:babycare_product_brand.product_product_form_attribute_manager
+#: view:product.product:babycare_product_brand.product_search_form_view_inherited
+#: view:product.template:babycare_product_brand.view_product_template_search_brand_inherited
+msgid "Brand"
+msgstr "Merk"
+
+#. module: babycare_product_brand
+#: model:ir.ui.menu,name:babycare_product_brand.menu_attribute_manager_product_brand
+msgid "Brands"
+msgstr "Merken"
+
+#. module: babycare_product_brand
+#: model:ir.actions.act_window,name:babycare_product_brand.action_product_color
+#: view:product.product:babycare_product_brand.product_product_form_attribute_manager
+#: field:product.product,product_color_id:0
+#: field:product.template,product_color_id:0
+msgid "Color"
+msgstr "Kleur"
+
+#. module: babycare_product_brand
+#: field:product.color,name:0
+msgid "Color Name"
+msgstr "Kleurnaam"
+
+#. module: babycare_product_brand
+#: model:ir.ui.menu,name:babycare_product_brand.menu_product_color
+msgid "Colors"
+msgstr "Kleuren"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,create_uid:0
+#: field:product.color,create_uid:0
+#: field:product.options,create_uid:0
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,create_date:0
+#: field:product.color,create_date:0
+#: field:product.options,create_date:0
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,display_name:0
+#: field:product.color,display_name:0
+#: field:product.options,display_name:0
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,id:0
+#: field:product.color,id:0
+#: field:product.options,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,__last_update:0
+#: field:product.color,__last_update:0
+#: field:product.options,__last_update:0
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,write_uid:0
+#: field:product.color,write_uid:0
+#: field:product.options,write_uid:0
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: babycare_product_brand
+#: field:product.attributeset,write_date:0
+#: field:product.color,write_date:0
+#: field:product.options,write_date:0
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: babycare_product_brand
+#: view:product.product:babycare_product_brand.product_product_form_attribute_manager
+msgid "New Attribute Values added? Before Product Export/Update to Magento"
+msgstr "Nieuwe attribuutwaarden toegevoegd? Voor Product Export/Update naar Magento"
+
+#. module: babycare_product_brand
+#: model:ir.actions.act_window,name:babycare_product_brand.action_product_options
+#: model:ir.ui.menu,name:babycare_product_brand.menu_product_options
+#: field:product.attributeset,options_ids:0
+#: view:product.product:babycare_product_brand.product_product_form_attribute_manager
+#: field:product.product,product_options_ids:0
+#: field:product.template,product_options_ids:0
+msgid "Options"
+msgstr "Opties"
+
+#. module: babycare_product_brand
+#: model:ir.model,name:babycare_product_brand.model_product_product
+msgid "Product"
+msgstr "Product"
+
+#. module: babycare_product_brand
+#: model:ir.ui.menu,name:babycare_product_brand.menu_product_attributeset
+#: view:product.attributeset:babycare_product_brand.view_product_attributeset_form
+#: field:product.attributeset,name:0
+msgid "Product Attribute Set"
+msgstr "Product Attribuutset"
+
+#. module: babycare_product_brand
+#: view:product.color:babycare_product_brand.view_product_color_form
+msgid "Product Color"
+msgstr "Productkleur"
+
+#. module: babycare_product_brand
+#: view:product.options:babycare_product_brand.view_product_options_form
+#: field:product.options,name:0
+msgid "Product Options"
+msgstr "Product opties"
+
+#. module: babycare_product_brand
+#: model:ir.model,name:babycare_product_brand.model_product_template
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: babycare_product_brand
+#: help:product.product,product_color_id:0
+#: help:product.template,product_color_id:0
+msgid "Select a color for this product"
+msgstr "Selecteer een kleur voor dit product"
+
+#. module: babycare_product_brand
+#: help:product.product,product_options_ids:0
+#: help:product.template,product_options_ids:0
+msgid "Select options for this product"
+msgstr "Selecteer opties voor dit product"
+
+#. module: babycare_product_brand
+#: view:product.product:babycare_product_brand.product_product_form_attribute_manager
+msgid "Sync All Attributes"
+msgstr "Synchroniseer alle attributen"
+
+#. module: babycare_product_brand
+#: sql_constraint:product.attributeset:0
+msgid "The Name of the Product Attribute Set must be unique"
+msgstr "De naam van de attribuutset moet uniek zijn"
+
+#. module: babycare_product_brand
+#: sql_constraint:product.brand:0
+msgid "The Name of the Product Brand must be unique"
+msgstr "De naam van het merk moet uniek zijn"
+
+#. module: babycare_product_brand
+#: sql_constraint:product.color:0
+msgid "The Name of the Product Color must be unique"
+msgstr "De naam van de kleur moet uniek zijn"
+
+#. module: babycare_product_brand
+#: sql_constraint:product.options:0
+msgid "The Name of the Product Option must be unique"
+msgstr "De naam van de optie moet uniek zijn"
+
+#. module: babycare_product_brand
+#: view:product.attributeset:babycare_product_brand.view_product_attributeset_tree
+msgid "product.attributeset"
+msgstr "product.attributeset"
+
+#. module: babycare_product_brand
+#: view:product.color:babycare_product_brand.view_product_color_tree
+msgid "product.color"
+msgstr "product.color"
+
+#. module: babycare_product_brand
+#: view:product.options:babycare_product_brand.view_product_options_tree
+msgid "product.options"
+msgstr "product.options"
+

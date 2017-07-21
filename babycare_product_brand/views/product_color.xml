@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_color_form" model="ir.ui.view">
+            <field name="name">product_color - ProductColor Form</field>
+            <field name="model">product.color</field>
+            <field name="arch" type="xml">
+                <form string="Product Color">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_color_tree" model="ir.ui.view">
+            <field name="name">product_color - ProductColor Tree</field>
+            <field name="model">product.color</field>
+            <field name="arch" type="xml">
+                <tree string="product.color">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_product_color" model="ir.actions.act_window">
+            <field name="name">Color</field>
+            <field name="res_model">product.color</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new color.
+                </p>
+                <p>
+                    You must define a color before you can add a color to a product.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_product_color"
+            name="Colors"
+            action="action_product_color"
+            parent="menu_product_attribute_manager"
+            sequence="20" />
+    </data>
+</openerp>
