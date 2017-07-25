@@ -12,19 +12,6 @@ class ProductAttributeSet(models.Model):
         'Options'
     )
 
-    @api.multi
-    def unlink(self):
-        if self.env['product.options'].search(
-                [('attributeset_id', 'in', self.ids)]):
-            raise UserError(
-                (
-                    'The operation cannot be completed:\n'
-                    'You trying to delete an attribute set'
-                    ' with a reference on a product option.'
-                )
-            )
-        return super(ProductAttributeSet, self).unlink()
-
     _sql_constraints = [
         (
             'name_unique',
