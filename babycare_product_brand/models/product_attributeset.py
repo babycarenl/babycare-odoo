@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, api
-from openerp.exceptions import Warning as UserError
+from openerp import models, fields
 
 
 class ProductAttributeSet(models.Model):
