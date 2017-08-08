@@ -19,7 +19,7 @@ msgstr ""
 #: field:product.product,product_monitors_includingrecallfunction:0
 #: field:product.template,product_monitors_includingrecallfunction:0
 msgid "2-way voice operation"
-msgstr "Terugspreekfunctie"
+msgstr "2-way voice operation"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,help:babycare_product_brand.action_product_attributemanager_product_attributeset
@@ -31,10 +31,10 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                </p>\n"
 "            "
 msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                    Klik hier voor het aanmaken van een nieuwe attribuutset.\n"
+"                    Click to define a new attribute set.\n"
 "                </p>\n"
 "                <p>\n"
-"                    Een attribuutset is nodig om een optie aan te maken.\n"
+"                    You must define an attribute set before you can add an option.\n"
 "                </p>\n"
 "            "
 
@@ -48,10 +48,10 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                </p>\n"
 "            "
 msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                    Klik hier voor het aanmaken van een nieuw merk.\n"
+"                    Click to define a new brand.\n"
 "                </p>\n"
 "                <p>\n"
-"                    Je moet een merk definiëren voordat je een merk kunt toevoegen aan een product.\n"
+"                    You must define a brand before you can add a brand to a product.\n"
 "                </p>\n"
 "            "
 
@@ -65,10 +65,10 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                </p>\n"
 "            "
 msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                    Klik hier voor het aanmaken van een nieuwe kleur.\n"
+"                    Click to define a new color.\n"
 "                </p>\n"
 "                <p>\n"
-"                    Je moet een kleur aanmaken voordat deze aan een product kan worden toegevoegd.\n"
+"                    You must define a color before you can add a color to a product.\n"
 "                </p>\n"
 "            "
 
@@ -82,10 +82,10 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                </p>\n"
 "            "
 msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                    Klik hier voor het aanmaken van een nieuwe optie.\n"
+"                    Click to define a new option.\n"
 "                </p>\n"
 "                <p>\n"
-"                    Je moet een optie aanmaken voordat deze aan een product kan worden toegevoegd.\n"
+"                    You must define an option before you can add an option to a product.\n"
 "                </p>\n"
 "            "
 
@@ -119,23 +119,23 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                </p>\n"
 "            "
 msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                    Klik om een nieuw record te definiëren.\n"
+"                    Click to define a new record.\n"
 "                </p>\n"
 "                <p>\n"
-"                    Je moet een record definiëren voordat je het record kunt toevoegen aan een product.\n"
+"                    You must define a record before you can add the record to a product.\n"
 "                </p>\n"
 "            "
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_buggies_adjustablebackrest_inherited
 msgid "Adjustable Backrest"
-msgstr "Verstelbare rugleuning"
+msgstr "Adjustable Backrest"
 
 #. module: babycare_product_brand
 #: field:product.product,product_buggies_adjustablebackrest:0
 #: field:product.template,product_buggies_adjustablebackrest:0
 msgid "Adjustable Backrest?"
-msgstr "Verstelbare rugleuning?"
+msgstr "Adjustable Backrest?"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_buggies_agecategory_inherited
@@ -156,12 +156,12 @@ msgstr "Verstelbare rugleuning?"
 #: field:product.template,product_toys_agecategory_id:0
 #: field:product.toys.agecategory,name:0
 msgid "Age Category"
-msgstr "Leeftijdscategorie"
+msgstr "Age Category"
 
 #. module: babycare_product_brand
 #: field:product.options,attributeset_id:0
 msgid "Attribute"
-msgstr "Attribuut"
+msgstr "Attribute"
 
 #. module: babycare_product_brand
 #: model:ir.ui.menu,name:babycare_product_brand.product_attribute_manager
@@ -169,27 +169,27 @@ msgstr "Attribuut"
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 #: view:product.template:babycare_product_brand.product_template_form_attribute_manager
 msgid "Attribute Manager"
-msgstr "Attribuut Manager"
+msgstr "Attribute Manager"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_attributeset_inherited
 msgid "Attribute Set"
-msgstr "Attribuutset"
+msgstr "Attribute Set"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_attributeset
 msgid "Attribute Sets"
-msgstr "Attribuutset"
+msgstr "Attribute Sets"
 
 #. module: babycare_product_brand
 #: view:product.template:babycare_product_brand.product_template_form_attribute_manager
 msgid "Attribute values can be added to the variant."
-msgstr "Attribuutwaarden worden toegevoegd op de variant."
+msgstr "Attribute values can be added to the variant."
 
 #. module: babycare_product_brand
 #: selection:product.template,product_clothes_gender:0
 msgid "Boy"
-msgstr "Jongen"
+msgstr "Jungen"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_brand
@@ -198,80 +198,80 @@ msgstr "Jongen"
 #: view:product.product:babycare_product_brand.product_search_form_view_inherited
 #: view:product.template:babycare_product_brand.view_product_template_search_brand_inherited
 msgid "Brand"
-msgstr "Merk"
+msgstr "Marke"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Buggies"
-msgstr "Buggy's"
+msgstr "Buggies"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_buggies_agecategory
 msgid "Buggies Age Category"
-msgstr "Buggy's Leeftijdscategorie"
+msgstr "Buggies Age Category"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_buggies_maxcarryweight
 msgid "Buggies Maximum Carry Weight"
-msgstr "Buggy's Maximaal Draaggewich"
+msgstr "Buggies Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_buggies_numberofwheels
 msgid "Buggies Number Of Wheels"
-msgstr "Buggy's Aantal Wielen"
+msgstr "Buggies Number Of Wheels"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Car Seats"
-msgstr "Autostoelen"
+msgstr "Car Seats"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carseats_agecategory
 msgid "Car Seats Age Category"
-msgstr "Autostoelen Leeftijdscategory"
+msgstr "Car Seats Age Category"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carseats_childlength
 msgid "Car Seats Child Length"
-msgstr "Autostoelen Lengte Kind"
+msgstr "Car Seats Child Length"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carseats_childweight
 msgid "Car Seats Child Weight"
-msgstr "Autostoelen Gewicht Kind"
+msgstr "Car Seats Child Weight"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carseats_directionofuse
 msgid "Car Seats Direction Of Use"
-msgstr "Autostoelen Gebruiksrichting"
+msgstr "Car Seats Direction Of Use"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carseats_installmethod
 msgid "Car Seats Install Method"
-msgstr "Autostoelen Installatiemethod"
+msgstr "Car Seats Install Method"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Carriers"
-msgstr "Draagsystemen"
+msgstr "Carriers"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carriers_directionofuse
 msgid "Carriers Direction Of Use"
-msgstr "Draagsystemen Gebruiksrichting"
+msgstr "Carriers Direction Of Use"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carriers_maxcarryweight
 msgid "Carriers Maximum Carry Weight"
-msgstr "Draagsystemen Maximaal Draaggewicht"
+msgstr "Carriers Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_carriers_type
 msgid "Carriers Type"
-msgstr "Draagsystemen Type"
+msgstr "Carriers Type"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_carseats_childlength_inherited
@@ -280,7 +280,7 @@ msgstr "Draagsystemen Type"
 #: field:product.product,product_carseats_childlength_id:0
 #: field:product.template,product_carseats_childlength_id:0
 msgid "Child Length"
-msgstr "Lengte Kind"
+msgstr "Child Length"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_carseats_childweight_inherited
@@ -289,23 +289,23 @@ msgstr "Lengte Kind"
 #: field:product.product,product_carseats_childweight_id:0
 #: field:product.template,product_carseats_childweight_id:0
 msgid "Child Weight"
-msgstr "Gewicht Kind"
+msgstr "Child Weight"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Clothes"
-msgstr "Kleding"
+msgstr "Clothes"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_clothes_season
 msgid "Clothes Season"
-msgstr "Kleding Seizoen"
+msgstr "Clothes Season"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_clothes_size
 msgid "Clothes Size"
-msgstr "Kleding Maat"
+msgstr "Clothes Size"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_highchairs_collapsible_inherited
@@ -318,7 +318,7 @@ msgstr "Kleding Maat"
 #: field:product.template,product_rockers_collapsible:0
 #: field:product.template,product_travelcots_collapsible:0
 msgid "Collapsible"
-msgstr "Inklapbaar"
+msgstr "Collapsible"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_color
@@ -327,12 +327,12 @@ msgstr "Inklapbaar"
 #: field:product.product,product_color_id:0
 #: field:product.template,product_color_id:0
 msgid "Color"
-msgstr "Kleur"
+msgstr "Color"
 
 #. module: babycare_product_brand
 #: field:product.color,name:0
 msgid "Color Name"
-msgstr "Kleurnaam"
+msgstr "Color Name"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_attributeset_inherited
@@ -361,7 +361,7 @@ msgstr "Kleurnaam"
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_toys_agecategory_inherited
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_toys_type_inherited
 msgid "Create"
-msgstr "Aanmaken"
+msgstr "Create"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,create_uid:0
@@ -390,7 +390,7 @@ msgstr "Aanmaken"
 #: field:product.toys.agecategory,create_uid:0
 #: field:product.toys.type,create_uid:0
 msgid "Created by"
-msgstr "Aangemaakt door"
+msgstr "Created by"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,create_date:0
@@ -419,13 +419,13 @@ msgstr "Aangemaakt door"
 #: field:product.toys.agecategory,create_date:0
 #: field:product.toys.type,create_date:0
 msgid "Created on"
-msgstr "Aangemaakt op"
+msgstr "Created on"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Default"
-msgstr "Standaard"
+msgstr "Default"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_carriers_directionofuse_inherited
@@ -437,12 +437,12 @@ msgstr "Standaard"
 #: field:product.template,product_carriers_directionofuse_id:0
 #: field:product.template,product_carseats_directionofuse_id:0
 msgid "Direction of Use"
-msgstr "Gebruiksrichting"
+msgstr "Direction of Use"
 
 #. module: babycare_product_brand
 #: field:product.carriers.directionofuse,name:0
 msgid "DirectionOfUse"
-msgstr "Gebruiksrichting"
+msgstr "DirectionOfUse"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,display_name:0
@@ -471,35 +471,35 @@ msgstr "Gebruiksrichting"
 #: field:product.toys.agecategory,display_name:0
 #: field:product.toys.type,display_name:0
 msgid "Display Name"
-msgstr "Weergavenaam"
+msgstr "Display Name"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_clothes_gender_inherited
 #: field:product.product,product_clothes_gender:0
 #: field:product.template,product_clothes_gender:0
 msgid "Gender"
-msgstr "Geslacht"
+msgstr "Gender"
 
 #. module: babycare_product_brand
 #: selection:product.template,product_clothes_gender:0
 msgid "Girl"
-msgstr "Meisje"
+msgstr "Mädchen"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "High Chairs"
-msgstr "Kinderstoelen"
+msgstr "High Chairs"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_highchairs_agecategory
 msgid "High Chairs Age Category"
-msgstr "Kinderstoelen Leeftijdscategorie"
+msgstr "High Chairs Age Category"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_highchairs_material
 msgid "High Chairs Material"
-msgstr "Kinderstoelen Materiaal"
+msgstr "High Chairs Material"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,id:0
@@ -534,46 +534,46 @@ msgstr "ID"
 #: field:product.product,product_monitors_includingcamera:0
 #: field:product.template,product_monitors_includingcamera:0
 msgid "Including Camera"
-msgstr "Inclusief camera"
+msgstr "Including Camera"
 
 #. module: babycare_product_brand
 #: field:product.product,product_travelcots_includingcreephatch:0
 #: field:product.template,product_travelcots_includingcreephatch:0
 msgid "Including Creep Hatch"
-msgstr "Inclusief kruipluik"
+msgstr "Including Creep Hatch"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_highchairs_includingdinnertray_inherited
 #: field:product.product,product_highchairs_includingdinnertray:0
 #: field:product.template,product_highchairs_includingdinnertray:0
 msgid "Including Dinner Tray"
-msgstr "Inclusief eetblad"
+msgstr "Including Dinner Tray"
 
 #. module: babycare_product_brand
 #: field:product.product,product_travelcots_includingwheels:0
 #: field:product.template,product_travelcots_includingwheels:0
 msgid "Including Wheels"
-msgstr "Inclusief wielen"
+msgstr "Including Wheels"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_monitors_includingcamera_inherited
 msgid "Including camera"
-msgstr "Inclusief camera"
+msgstr "Including camera"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_travelcots_includingcreephatch_inherited
 msgid "Including creep hatch"
-msgstr "Inclusief kruipluik"
+msgstr "Including creep hatch"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_monitors_includingrecallfunction_inherited
 msgid "Including recall function"
-msgstr "Inclusief terugspreekfunctie"
+msgstr "Including recall function"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_travelcots_includingwheels_inherited
 msgid "Including wheels"
-msgstr "Inclusief wielen"
+msgstr "Including wheels"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_carseats_installmethod_inherited
@@ -582,7 +582,7 @@ msgstr "Inclusief wielen"
 #: field:product.product,product_carseats_installmethod_id:0
 #: field:product.template,product_carseats_installmethod_id:0
 msgid "Install Method"
-msgstr "Installatiemethode"
+msgstr "Install Method"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,__last_update:0
@@ -611,7 +611,7 @@ msgstr "Installatiemethode"
 #: field:product.toys.agecategory,__last_update:0
 #: field:product.toys.type,__last_update:0
 msgid "Last Modified on"
-msgstr "Laatst gewijzigd op"
+msgstr "Last Modified on"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,write_uid:0
@@ -640,7 +640,7 @@ msgstr "Laatst gewijzigd op"
 #: field:product.toys.agecategory,write_uid:0
 #: field:product.toys.type,write_uid:0
 msgid "Last Updated by"
-msgstr "Laatst bijgewerkt door"
+msgstr "Last Updated by"
 
 #. module: babycare_product_brand
 #: field:product.attributemanager,write_date:0
@@ -669,7 +669,7 @@ msgstr "Laatst bijgewerkt door"
 #: field:product.toys.agecategory,write_date:0
 #: field:product.toys.type,write_date:0
 msgid "Last Updated on"
-msgstr "Laatst bijgewerkt op"
+msgstr "Last Updated on"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_highchairs_material_inherited
@@ -678,7 +678,7 @@ msgstr "Laatst bijgewerkt op"
 #: field:product.product,product_highchairs_material_id:0
 #: field:product.template,product_highchairs_material_id:0
 msgid "Material"
-msgstr "Materiaal"
+msgstr "Material"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_buggies_maxcarryweight_inherited
@@ -694,7 +694,7 @@ msgstr "Materiaal"
 #: field:product.template,product_carriers_maxcarryweight_id:0
 #: field:product.template,product_rockers_maxcarryweight_id:0
 msgid "Maximum Carry Weight"
-msgstr "Maximaal draaggewicht"
+msgstr "Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_monitors_maxrange_inherited
@@ -703,28 +703,28 @@ msgstr "Maximaal draaggewicht"
 #: field:product.product,product_monitors_maxrange_id:0
 #: field:product.template,product_monitors_maxrange_id:0
 msgid "Maximum Range"
-msgstr "Maximaal bereik"
+msgstr "Maximum Range"
 
 #. module: babycare_product_brand
 #: field:product.carriers.maxcarryweight,name:0
 msgid "Maxium Carry Weight"
-msgstr "Maximaal draaggewicht"
+msgstr "Maxium Carry Weight"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Monitors"
-msgstr "Babyfoons"
+msgstr "Monitors"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_monitors_maxrange
 msgid "Monitors Maximum Range"
-msgstr "Babyfoons Maximaal Bereik"
+msgstr "Monitors Maximum Range"
 
 #. module: babycare_product_brand
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "New Attribute Values added? Before Product Export/Update to Magento"
-msgstr "Nieuwe attribuutwaarden toegevoegd? Voor Product Export/Update naar Magento"
+msgstr "New Attribute Values added? Before Product Export/Update to Magento"
 
 #. module: babycare_product_brand
 #: selection:product.template,product_buggies_adjustablebackrest:0
@@ -737,7 +737,7 @@ msgstr "Nieuwe attribuutwaarden toegevoegd? Voor Product Export/Update naar Mage
 #: selection:product.template,product_travelcots_includingcreephatch:0
 #: selection:product.template,product_travelcots_includingwheels:0
 msgid "No"
-msgstr "Nee"
+msgstr "Nein"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_buggies_numberofwheels_inherited
@@ -749,12 +749,12 @@ msgstr "Nee"
 #: field:product.template,product_buggies_numberofwheels_id:0
 #: field:product.template,product_strollers_numberofwheels_id:0
 msgid "Number of Wheels"
-msgstr "Aantal wielen"
+msgstr "Number of Wheels"
 
 #. module: babycare_product_brand
 #: field:product.strollers.numberofwheels,name:0
 msgid "Number of wheels"
-msgstr "Aantal wielen"
+msgstr "Number of wheels"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_options
@@ -764,155 +764,155 @@ msgstr "Aantal wielen"
 #: field:product.product,product_options_ids:0
 #: field:product.template,product_options_ids:0
 msgid "Options"
-msgstr "Opties"
+msgstr "Options"
 
 #. module: babycare_product_brand
 #: model:ir.model,name:babycare_product_brand.model_product_product
 msgid "Product"
-msgstr "Product"
+msgstr "Produkt"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.product_attributemanager_action
 msgid "Product Attribute Manager"
-msgstr "Product Attribuut Manager"
+msgstr "Product Attribute Manager"
 
 #. module: babycare_product_brand
 #: view:product.attributeset:babycare_product_brand.view_product_attributeset_form
 #: field:product.attributeset,name:0
 msgid "Product Attribute Set"
-msgstr "Product Attribuutset"
+msgstr "Product Attribute Set"
 
 #. module: babycare_product_brand
 #: view:product.buggies.agecategory:babycare_product_brand.view_product_buggies_agecategory_form
 msgid "Product Buggies Age Category"
-msgstr "Product Buggy's Leeftijdscategory"
+msgstr "Product Buggies Age Category"
 
 #. module: babycare_product_brand
 #: view:product.buggies.maxcarryweight:babycare_product_brand.view_product_buggies_maxcarryweight_form
 msgid "Product Buggies Maximum Carry Weight"
-msgstr "Product Buggy's Maximaal Draaggewicht"
+msgstr "Product Buggies Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: view:product.buggies.numberofwheels:babycare_product_brand.view_product_buggies_numberofwheels_form
 msgid "Product Buggies Number Of Wheels"
-msgstr "Product Buggy's Aantal Wielen"
+msgstr "Product Buggies Number Of Wheels"
 
 #. module: babycare_product_brand
 #: view:product.carseats.agecategory:babycare_product_brand.view_product_carseats_agecategory_form
 msgid "Product Car Seats Age Category"
-msgstr "Product Autostoelen Leeftijdscategorie"
+msgstr "Product Car Seats Age Category"
 
 #. module: babycare_product_brand
 #: view:product.carseats.childlength:babycare_product_brand.view_product_carseats_childlength_form
 msgid "Product Car Seats Child Length"
-msgstr "Product Autostoelen Lengte Kind"
+msgstr "Product Car Seats Child Length"
 
 #. module: babycare_product_brand
 #: view:product.carseats.childweight:babycare_product_brand.view_product_carseats_childweight_form
 msgid "Product Car Seats Child Weight"
-msgstr "Product Autostoelen Gewicht Kind"
+msgstr "Product Car Seats Child Weight"
 
 #. module: babycare_product_brand
 #: view:product.carseats.directionofuse:babycare_product_brand.view_product_carseats_directionofuse_form
 msgid "Product Car Seats Direction Of Use"
-msgstr "Product Autostoelen Gebruiksrichting"
+msgstr "Product Car Seats Direction Of Use"
 
 #. module: babycare_product_brand
 #: view:product.carseats.installmethod:babycare_product_brand.view_product_carseats_installmethod_form
 msgid "Product Car Seats Install Method"
-msgstr "Product Autostoelen Installatiemethode"
+msgstr "Product Car Seats Install Method"
 
 #. module: babycare_product_brand
 #: view:product.carriers.directionofuse:babycare_product_brand.view_product_carriers_directionofuse_form
 msgid "Product Carriers Direction Of Use"
-msgstr "Product Draagsystemen Gebruiksrichting "
+msgstr "Product Carriers Direction Of Use"
 
 #. module: babycare_product_brand
 #: view:product.carriers.maxcarryweight:babycare_product_brand.view_product_carriers_maxcarryweight_form
 msgid "Product Carriers Maximum Carry Weight"
-msgstr "Product Draagsystemen Maximaal Draaggewicht"
+msgstr "Product Carriers Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: view:product.carriers.type:babycare_product_brand.view_product_carriers_type_form
 msgid "Product Carriers Type"
-msgstr "Product Draagsystemen Type"
+msgstr "Product Carriers Type"
 
 #. module: babycare_product_brand
 #: view:product.clothes.season:babycare_product_brand.view_product_clothes_season_form
 msgid "Product Clothes Season"
-msgstr "Product Kleding Seizoen"
+msgstr "Product Clothes Season"
 
 #. module: babycare_product_brand
 #: view:product.clothes.size:babycare_product_brand.view_product_clothes_size_form
 msgid "Product Clothes Size"
-msgstr "Product Kleding Maat"
+msgstr "Product Clothes Size"
 
 #. module: babycare_product_brand
 #: view:product.color:babycare_product_brand.view_product_color_form
 msgid "Product Color"
-msgstr "Productkleur"
+msgstr "Product Color"
 
 #. module: babycare_product_brand
 #: view:product.highchairs.agecategory:babycare_product_brand.view_product_highchairs_agecategory_form
 msgid "Product High Chairs Age Category"
-msgstr "Product Kinderstoelen Leeftijdscategorie"
+msgstr "Product High Chairs Age Category"
 
 #. module: babycare_product_brand
 #: view:product.highchairs.material:babycare_product_brand.view_product_highchairs_material_form
 msgid "Product High Chairs Material"
-msgstr "Product Kinderstoelen Materiaal"
+msgstr "Product High Chairs Material"
 
 #. module: babycare_product_brand
 #: view:product.monitors.maxrange:babycare_product_brand.view_product_monitors_maxrange_form
 msgid "Product Monitors Maximum Range"
-msgstr "Product Babyfoons Maximaal Bereik"
+msgstr "Product Monitors Maximum Range"
 
 #. module: babycare_product_brand
 #: view:product.options:babycare_product_brand.view_product_options_form
 #: field:product.options,name:0
 msgid "Product Options"
-msgstr "Product opties"
+msgstr "Product Options"
 
 #. module: babycare_product_brand
 #: view:product.rockers.maxcarryweight:babycare_product_brand.view_product_rockers_maxcarryweight_form
 msgid "Product Rockers Maximum Carry Weight"
-msgstr "Product Wipstoelen Maximaal Draaggewciht"
+msgstr "Product Rockers Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: view:product.strollers.numberofwheels:babycare_product_brand.view_product_strollers_numberofwheels_form
 msgid "Product Strollers Number Of Wheels"
-msgstr "Product Kinderwagens Aantal Wielen"
+msgstr "Product Strollers Number Of Wheels"
 
 #. module: babycare_product_brand
 #: model:ir.model,name:babycare_product_brand.model_product_template
 msgid "Product Template"
-msgstr "Productsjabloon"
+msgstr "Produktvorlage"
 
 #. module: babycare_product_brand
 #: view:product.textiles.size:babycare_product_brand.view_product_textiles_size_form
 msgid "Product Textiles Size"
-msgstr "Product Textiel Maat"
+msgstr "Product Textiles Size"
 
 #. module: babycare_product_brand
 #: view:product.toys.agecategory:babycare_product_brand.view_product_toys_agecategory_form
 msgid "Product Toys Age Category"
-msgstr "Product Speelgoed Leeftijdscategorie"
+msgstr "Product Toys Age Category"
 
 #. module: babycare_product_brand
 #: view:product.toys.type:babycare_product_brand.view_product_toys_type_form
 msgid "Product Toys Type"
-msgstr "Product Speelgoed Type"
+msgstr "Product Toys Type"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Rockers"
-msgstr "Wipstoelen"
+msgstr "Rockers"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_rockers_maxcarryweight
 msgid "Rockers Maximum Carry Weight"
-msgstr "Wipstoelen Maximaal Draaggewicht"
+msgstr "Rockers Maximum Carry Weight"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_clothes_season_inherited
@@ -921,19 +921,19 @@ msgstr "Wipstoelen Maximaal Draaggewicht"
 #: field:product.product,product_clothes_season_id:0
 #: field:product.template,product_clothes_season_id:0
 msgid "Season"
-msgstr "Seizoen"
+msgstr "Season"
 
 #. module: babycare_product_brand
 #: help:product.product,product_color_id:0
 #: help:product.template,product_color_id:0
 msgid "Select a color for this product"
-msgstr "Selecteer een kleur voor dit product"
+msgstr "Select a color for this product"
 
 #. module: babycare_product_brand
 #: help:product.product,product_options_ids:0
 #: help:product.template,product_options_ids:0
 msgid "Select options for this product"
-msgstr "Selecteer opties voor dit product"
+msgstr "Select options for this product"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_clothes_size_inherited
@@ -946,18 +946,18 @@ msgstr "Selecteer opties voor dit product"
 #: field:product.template,product_textiles_size_id:0
 #: field:product.textiles.size,name:0
 msgid "Size"
-msgstr "Maat"
+msgstr "Size"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Strollers"
-msgstr "Kinderwagens"
+msgstr "Strollers"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_strollers_numberofwheels
 msgid "Strollers Number Of Wheels"
-msgstr "Kinderwagens Aantal Wielen"
+msgstr "Strollers Number Of Wheels"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_brand_inherited
@@ -1000,43 +1000,43 @@ msgstr "Sync"
 #. module: babycare_product_brand
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Sync All Attributes"
-msgstr "Synchroniseer alle attributen"
+msgstr "Sync All Attributes"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Textiles"
-msgstr "Textiel"
+msgstr "Textiles"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_textiles_size
 msgid "Textiles Size"
-msgstr "Textiel Maat"
+msgstr "Textiles Size"
 
 #. module: babycare_product_brand
 #: sql_constraint:product.attributeset:0
 msgid "The Name of the Product Attribute Set must be unique"
-msgstr "De naam van de attribuutset moet uniek zijn"
+msgstr "The Name of the Product Attribute Set must be unique"
 
 #. module: babycare_product_brand
 #: sql_constraint:product.brand:0
 msgid "The Name of the Product Brand must be unique"
-msgstr "De naam van het merk moet uniek zijn"
+msgstr "The Name of the Product Brand must be unique"
 
 #. module: babycare_product_brand
 #: sql_constraint:product.color:0
 msgid "The Name of the Product Color must be unique"
-msgstr "De naam van de kleur moet uniek zijn"
+msgstr "The Name of the Product Color must be unique"
 
 #. module: babycare_product_brand
 #: sql_constraint:product.options:0
 msgid "The Name of the Product Option must be unique"
-msgstr "De naam van de optie moet uniek zijn"
+msgstr "The Name of the Product Option must be unique"
 
 #. module: babycare_product_brand
 #: sql_constraint:product.strollers.numberofwheels:0
 msgid "The Name of the record must be unique"
-msgstr "De naam van het record moet uniek zijn"
+msgstr "The Name of the record must be unique"
 
 #. module: babycare_product_brand
 #: sql_constraint:product.buggies.agecategory:0
@@ -1060,29 +1060,29 @@ msgstr "De naam van het record moet uniek zijn"
 #: sql_constraint:product.toys.agecategory:0
 #: sql_constraint:product.toys.type:0
 msgid "The name of the record must be unique"
-msgstr "De naam van het record moet uniek zijn"
+msgstr "The name of the record must be unique"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Toys"
-msgstr "Speelgoed"
+msgstr "Toys"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_toys_agecategory
 msgid "Toys Age Category"
-msgstr "Speelgoed Leeftijdscategorie"
+msgstr "Toys Age Category"
 
 #. module: babycare_product_brand
 #: model:ir.actions.act_window,name:babycare_product_brand.action_product_attributemanager_product_toys_type
 msgid "Toys Type"
-msgstr "Speelgoed Type"
+msgstr "Toys Type"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form
 #: view:product.product:babycare_product_brand.product_product_form_attribute_manager
 msgid "Travelcots"
-msgstr "Campingbedden"
+msgstr "Travelcots"
 
 #. module: babycare_product_brand
 #: view:product.attributemanager:babycare_product_brand.view_product_attributemanager_form_product_carriers_type_inherited
@@ -1095,7 +1095,7 @@ msgstr "Campingbedden"
 #: field:product.template,product_toys_type_id:0
 #: field:product.toys.type,name:0
 msgid "Type"
-msgstr "Soort"
+msgstr "Typ"
 
 #. module: babycare_product_brand
 #: selection:product.template,product_clothes_gender:0
