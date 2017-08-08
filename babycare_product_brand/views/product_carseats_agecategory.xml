@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_carseats_agecategory_form" model="ir.ui.view">
+            <field name="name">product_carseats_agecategory - ProductCarSeatsAgeCategory Form</field>
+            <field name="model">product.carseats.agecategory</field>
+            <field name="arch" type="xml">
+                <form string="Product Car Seats Age Category">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_carseats_agecategory_tree" model="ir.ui.view">
+            <field name="name">product_carseats_agecategory - ProductCarSeatsAgeCategory Tree</field>
+            <field name="model">product.carseats.agecategory</field>
+            <field name="arch" type="xml">
+                <tree string="product.carseats.agecategory">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_product_attributemanager_product_carseats_agecategory" model="ir.actions.act_window">
+            <field name="name">Car Seats Age Category</field>
+            <field name="res_model">product.carseats.agecategory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new record.
+                </p>
+                <p>
+                    You must define a record before you can add the record to a product.
+                </p>
+            </field>
+        </record>
+
+        <record id="view_product_attributemanager_form_product_carseats_agecategory_inherited" model="ir.ui.view">
+            <field name="name">Product Attribute Manager - CarSeats AgeCategory Add-on</field>
+            <field name="model">product.attributemanager</field>
+            <field name="inherit_id" ref="babycare_product_brand.view_product_attributemanager_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='attributemanager_carseats']/label[@string='Car Seats']" position="after">
+                    <label string="Age Category" />
+                    <div>
+                        <button type="action" name="%(action_product_attributemanager_product_carseats_agecategory)d" string="Create" icon="gtk-go-forward" class="oe_highlight" />
+                        <button type="object" name="action_call_magento_sync_all_carseats_agecategory" icon="gtk-go-forward" string="Sync" class="oe_highlight" />
+                    </div><newline/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

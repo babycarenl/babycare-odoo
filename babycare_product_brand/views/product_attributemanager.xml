@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="view_product_attributemanager_form" model="ir.ui.view">
+			<field name="name">product_attributemanager - ProductAttributeManager Form</field>
+			<field name="model">product.attributemanager</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form create="false" save="false">
+	                <sheet>
+						<group>
+							<separator string="Attribute Manager" />
+						</group>
+						<group col="3">
+							<group name="attributemanager_default">
+								<label string="Default" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+	                        </group>
+	                        <group name="attributemanager_strollers">
+	                        	<label string="Strollers" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_carseats">
+								<label string="Car Seats" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_buggies">
+								<label string="Buggies" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_highchairs">
+								<label string="High Chairs" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_carriers">
+								<label string="Carriers" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_textiles">
+								<label string="Textiles" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_monitors">
+								<label string="Monitors" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_clothes">
+								<label string="Clothes" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_toys">
+								<label string="Toys" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_rockers">
+								<label string="Rockers" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+							<group name="attributemanager_travelcots">
+								<label string="Travelcots" style="color: #f68519; font-size: 15px; font-weight: bold;" colspan="2" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>			
+		</record>
+
+        <record id="product_attributemanager_action" model="ir.actions.act_window">
+            <field name="name">Product Attribute Manager</field>
+            <field name="res_model">product.attributemanager</field>
+            <field name="view_type">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_product_attributemanager_form" />
+        </record>
+
+        <menuitem
+        	id="product_attribute_manager"
+        	name="Attribute Manager"
+        	parent="crm.root_menu"
+        	action="product_attributemanager_action"
+        />
+	</data>
+</openerp>

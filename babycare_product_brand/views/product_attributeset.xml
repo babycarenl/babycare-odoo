@@ -25,11 +25,12 @@
             </field>
         </record>
 
-        <record id="action_product_attributeset" model="ir.actions.act_window">
+        <record id="action_product_attributemanager_product_attributeset" model="ir.actions.act_window">
             <field name="name">Attribute Sets</field>
             <field name="res_model">product.attributeset</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to define a new attribute set.
@@ -40,11 +41,18 @@
             </field>
         </record>
 
-        <menuitem
-            id="menu_product_attributeset"
-            name="Product Attribute Set"
-            action="action_product_attributeset"
-            parent="menu_product_attribute_manager"
-            sequence="999" />
+        <record id="view_product_attributemanager_form_product_attributeset_inherited" model="ir.ui.view">
+            <field name="name">Product Attribute Manager - AttributeSet Add-on</field>
+            <field name="model">product.attributemanager</field>
+            <field name="inherit_id" ref="babycare_product_brand.view_product_attributemanager_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='attributemanager_default']/label[@string='Default']" position="after">
+                    <label string="Attribute Set" />
+                    <div>
+                        <button type="action" name="%(action_product_attributemanager_product_attributeset)d" string="Create" icon="gtk-go-forward" class="oe_highlight" />
+                    </div><newline/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </openerp>
