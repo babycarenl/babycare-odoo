@@ -6,7 +6,6 @@ Currently, the following attributes are supported:
 
  * Product Brand
  * Product Color
- * Product Options
  * Buggies Adjustable Backrest (selection-field)
  * Buggies Age Category
  * Buggies Maximum Carry Weight
@@ -45,11 +44,35 @@ Dependencies
  * product_brand
  * mob_extra_images
 
+How To Add More Attributes
+==========================
+
+
+Attributes with various options
+-------------------------------
+ 
+ * add attribute with correct code in Magento
+ * add attribute as custom option in mob_brand/models/mob_synchronization.py
+ * add attribute as custom option in selection field in babycare_product_brand/models/custom_option.py
+ * add attribute as product_[custom option]_id in babycare_product_brand/models/product.py
+ * add sync-button of custom option in babycare_product_brand/views/product_attributemanager.xml
+ * add product_[custom option]_id in babycare_product_brand/views/product.xml (important: options="{'no_create': True}")
+ * check translations of newly created attributes
+
+Attributes with selection field
+-------------------------------
+ 
+ * add attribute with correct code in Magento including options (e.g.: yes/no, boy/girl, etc.)
+ * add attribute as custom option in mob_brand/models/mob_synchronization.py
+ * add attribute as product_[custom option] as selection field in babycare_product_brand/models/product.py
+ * add product_[custom option] in babycare_product_brand/views/product.xml
+ * check translations of newly created attributes
+
 Known issues / Roadmap
 ======================
 
- * add a field on all attributes to list the products on which the attribute is associated (like product brand)
- * known issue: synchronization of selection fields to Magento will be duplicated in Magento; sync selection fields only once
+ * roadmap - add a field on all custom options to list the products on which the option is associated (like product brand)
+ * roadmap - show a red ball icon/count badge on the attribute manager view behind the option type in case there are not synced custom options
 
 Bug Tracker
 ===========
