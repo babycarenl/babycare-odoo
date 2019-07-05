@@ -143,9 +143,11 @@ class ProductTemplate(models.Model):
                     'product_variant_ids').filtered(
                     lambda p: not p.variant_published and
                     (not p.variant_eol or (p.variant_eol and
-                    (p.virtual_available - p.incoming_qty > 0))))
+                                           (p.virtual_available - p.incoming_qty > 0 or
+                                            p.x_availability > 0)
+                                           )))
             else:
-                publish = nonconfigurable.mapped(
+                publish = self.mapped(
                     'product_variant_ids').filtered(
                         lambda p: p.variant_published)
             if publish:
