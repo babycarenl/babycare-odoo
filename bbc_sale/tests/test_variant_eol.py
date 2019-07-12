@@ -12,6 +12,9 @@ class TestVariantEOL(TransactionCase):
         self.bom_product = self.env['product.product'].create({
             'name': 'bbc_sale_bom_product',
             'type': 'consu'})
+        self.bom_product_wh_bom = self.env['product.template'].create({
+            'name': 'bbc_sale_bom_product_wh_bom',
+            'type': 'consu'})
         self.component = self.env['product.product'].create({
             'name': 'bbc_sale_component'})
         self.bom = self.env['mrp.bom'].create({
@@ -166,3 +169,204 @@ class TestVariantEOL(TransactionCase):
         self.env['product.template'].deactivate_obsolete_products()
         self.assertFalse(self.component.active)
         self.assertFalse(self.bom_product.active)
+
+    def test_08_consu_product_with_already_eol_products_in_bom(self):
+        """ One dimensional consu product: 1 attribute with multiple values.
+        If a new configurable product is created and this products contains EOL variants in the BOM,
+        the affected variants of the config product are also set to variant_eol """
+
+        # consu product without BOM
+        self.assertFalse(self.bom_product_wh_bom.bom_ids)
+
+        # create attributes for consu product
+        attribute = self.env['product.attribute'].create({
+            'name': 'Attr1',
+            'value_ids': [
+                (0, 0, {
+                    'name': 'Attr1 - Val1'}),
+                (0, 0, {
+                    'name': 'Attr1 - Val2'})
+            ],
+        })
+
+        # create variants for consu
+        self.bom_product_wh_bom.product_variant_ids[0].write({
+            'attribute_value_ids': [(4, attribute.value_ids[0].id)]
+        })
+        pr2 = self.env['product.product'].create({
+            'product_tmpl_id': self.bom_product_wh_bom.id,
+            'attribute_value_ids': [(4, attribute.value_ids[1].id)]
+        })
+
+        self.env['product.attribute.line'].create({
+            'attribute_id': attribute.id,
+            'product_tmpl_id': self.bom_product_wh_bom.id})
+
+        # create real stockable products
+        product1 = self.env['product.product'].create({
+            'name': 'real stockable product 1'})
+        product2 = self.env['product.product'].create({
+            'name': 'real stockable eol product 2',
+            'state': 'end'})
+
+        # check stockable products and make product EOL
+        self.assertFalse(product1.variant_eol)
+        self.assertEqual(product2.state, 'end')
+        self.assertTrue(product2.variant_eol)
+
+        # create BOM for consu product
+        self.env['mrp.bom'].create({
+            'name': 'Test BOM with EOL product',
+            'product_tmpl_id': self.bom_product_wh_bom.id,
+            'product_uom': self.env.ref('product.product_uom_unit').id,
+            'product_qty': 1,
+            'type': 'phantom',
+            'bom_line_ids': [
+                (0, 0, {
+                    'product_id': product1.id,
+                    'product_uom': self.env.ref('product.product_uom_unit').id,
+                    'attribute_value_ids': [(4, attribute.value_ids[0].id)]}),
+                (0, 0, {
+                    'product_id': product2.id,
+                    'product_uom': self.env.ref('product.product_uom_unit').id,
+                    'attribute_value_ids': [(4, attribute.value_ids[1].id)]})
+            ]})
+        self.assertTrue(self.bom_product_wh_bom.bom_ids)
+
+        # check variant_state of config variant is EOL
+        variants = self.bom_product_wh_bom.product_variant_ids
+        self.assertEqual(len(variants), 2)
+
+        # check that all variants with Att2, Val1 are EOL
+        variants_att1val2 = self.bom_product_wh_bom.product_variant_ids.search(
+            [('attribute_value_ids.name', '=', 'Attr1 - Val2')])
+        other_variants = self.bom_product_wh_bom.product_variant_ids.search(
+            [('id', 'not in', variants_att1val2.ids),
+             ('product_tmpl_id', '=', self.bom_product_wh_bom.id)])
+        for variant in variants_att1val2:
+            self.assertTrue(variant.variant_eol)
+        for variant in other_variants:
+            self.assertFalse(variant.variant_eol)
+
+    def test_09_multi_consu_product_with_already_eol_products_in_bom(self):
+        """ More dimensional consu product: 2 attributes with multiple values.
+        If a new configurable product is created and this products contains EOL variants in the BOM,
+        the affected variants of the config product are also set to variant_eol """
+
+        # consu product without BOM
+        self.assertFalse(self.bom_product_wh_bom.bom_ids)
+
+        # create attributes for consu product
+        attribute1 = self.env['product.attribute'].create({
+            'name': 'Attr1',
+            'value_ids': [
+                (0, 0, {
+                    'name': 'Attr1 - Val1'}),
+                (0, 0, {
+                    'name': 'Attr1 - Val2'})
+            ],
+        })
+        attribute2 = self.env['product.attribute'].create({
+            'name': 'Attr2',
+            'value_ids': [
+                (0, 0, {
+                    'name': 'Attr2 - Val1'}),
+                (0, 0, {
+                    'name': 'Attr2 - Val2'})
+            ],
+        })
+
+        # create variants for consu
+        self.bom_product_wh_bom.product_variant_ids[0].write({
+            'attribute_value_ids': [
+                (4, attribute1.value_ids[0].id),
+                (4, attribute2.value_ids[0].id)
+            ]
+        })
+        pr2 = self.env['product.product'].create({
+            'product_tmpl_id': self.bom_product_wh_bom.id,
+            'attribute_value_ids': [
+                (4, attribute1.value_ids[1].id),
+                (4, attribute2.value_ids[0].id)
+            ]
+        })
+        pr3 = self.env['product.product'].create({
+            'product_tmpl_id': self.bom_product_wh_bom.id,
+            'attribute_value_ids': [
+                (4, attribute1.value_ids[0].id),
+                (4, attribute2.value_ids[1].id)
+            ]
+        })
+        pr4 = self.env['product.product'].create({
+            'product_tmpl_id': self.bom_product_wh_bom.id,
+            'attribute_value_ids': [
+                (4, attribute1.value_ids[1].id),
+                (4, attribute2.value_ids[1].id)
+            ]
+        })
+
+        self.env['product.attribute.line'].create({
+            'attribute_id': attribute1.id,
+            'product_tmpl_id': self.bom_product_wh_bom.id})
+
+        self.env['product.attribute.line'].create({
+            'attribute_id': attribute2.id,
+            'product_tmpl_id': self.bom_product_wh_bom.id})
+
+        # create real stockable products
+        product1 = self.env['product.product'].create({
+            'name': 'real stockable product 1'})
+        product2 = self.env['product.product'].create({
+            'name': 'real stockable eol product 2',
+            'state': 'end'})
+        product3 = self.env['product.product'].create({
+            'name': 'real stockable product 3'})
+
+        # check stockable products and make product EOL
+        self.assertFalse(product1.variant_eol)
+        self.assertEqual(product2.state, 'end')
+        self.assertTrue(product2.variant_eol)
+
+        # create BOM for consu product
+        self.env['mrp.bom'].create({
+            'name': 'Test BOM with EOL product',
+            'product_tmpl_id': self.bom_product_wh_bom.id,
+            'product_uom': self.env.ref('product.product_uom_unit').id,
+            'product_qty': 1,
+            'type': 'phantom',
+            'bom_line_ids': [
+                (0, 0, {
+                    'product_id': product1.id,
+                    'product_uom': self.env.ref('product.product_uom_unit').id,
+                    'attribute_value_ids': [
+                        (4, attribute1.value_ids[0].id),
+                        (4, attribute1.value_ids[1].id)
+                    ]}),
+                (0, 0, {
+                    'product_id': product2.id,
+                    'product_uom': self.env.ref('product.product_uom_unit').id,
+                    'attribute_value_ids': [
+                        (4, attribute2.value_ids[0].id)
+                    ]}),
+                (0, 0, {
+                    'product_id': product3.id,
+                    'product_uom': self.env.ref('product.product_uom_unit').id,
+                    'attribute_value_ids': [
+                        (4, attribute2.value_ids[1].id)
+                    ]})
+            ]})
+        self.assertTrue(self.bom_product_wh_bom.bom_ids)
+
+        # check variant_state of config variant is EOL
+        variants = self.bom_product_wh_bom.product_variant_ids
+        self.assertEqual(len(variants), 4)
+        # check that all variants with Att2, Val1 are EOL
+        variants_att2val1 = self.bom_product_wh_bom.product_variant_ids.search(
+            [('attribute_value_ids.name', '=', 'Attr2 - Val1')])
+        other_variants = self.bom_product_wh_bom.product_variant_ids.search(
+            [('id', 'not in', variants_att2val1.ids),
+             ('product_tmpl_id', '=', self.bom_product_wh_bom.id)])
+        for variant in variants_att2val1:
+            self.assertTrue(variant.variant_eol)
+        for variant in other_variants:
+            self.assertFalse(variant.variant_eol)

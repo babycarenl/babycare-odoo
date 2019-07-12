@@ -19,15 +19,17 @@ class MrpBom(models.Model):
             all_variants += variants
             for variant in variants:
                 avail = []
-                mage_product_mapping = self.env['magento.product'].search([
-                    ('oe_product_id', 'in', variant.ids)])
+                var_eol = []
                 for line in bom.bom_line_ids:
                     if (line.attribute_value_ids <=
                             variant.attribute_value_ids):
                         avail.append(
                             int(line.product_id.x_availability /
                                 line.product_qty))
+                        var_eol.append(
+                            line.product_id.variant_eol)
                 x_availability = avail and min(avail) or 0
+                variant_eol = True if True in var_eol else False
                 if variant.x_availability != x_availability:
                     _logger.debug(
                         "Updating availability of composed product %s "
@@ -35,14 +37,14 @@ class MrpBom(models.Model):
                         variant.default_code or variant.name,
                         variant.x_availability, x_availability)
                     variant.write({'x_availability': x_availability})
-                    mage_product_mapping.write({'stock_need_sync': True})
-
+                if variant.variant_eol != var_eol:
+                    variant.write({'variant_eol': variant_eol})
         return all_variants
 
     @api.model
     def create(self, vals):
         res = super(MrpBom, self).create(vals)
-        self.update_availability()
+        res.update_availability()
         return res
 
     @api.multi

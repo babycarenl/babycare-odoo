@@ -141,10 +141,13 @@ class ProductTemplate(models.Model):
             if values['website_published']:
                 publish = self.mapped(
                     'product_variant_ids').filtered(
-                        lambda p: not p.variant_published and
-                        not p.variant_eol)
+                    lambda p: not p.variant_published and
+                    (not p.variant_eol or (p.variant_eol and
+                                           (p.virtual_available - p.incoming_qty > 0 or
+                                            p.x_availability > 0)
+                                           )))
             else:
-                publish = nonconfigurable.mapped(
+                publish = self.mapped(
                     'product_variant_ids').filtered(
                         lambda p: p.variant_published)
             if publish:
@@ -414,6 +417,9 @@ class Product(models.Model):
         if 'variant_published' not in vals and (
                 res.product_tmpl_id.website_published):
             res.write({'variant_published': True})
+        if 'variant_eol' not in vals and (
+                res.product_tmpl_id.state in ['end']):
+            res.write({'variant_eol': True})
         return res
 
     @api.multi
