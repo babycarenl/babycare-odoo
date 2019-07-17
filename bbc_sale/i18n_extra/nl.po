@@ -29,3 +29,8 @@ msgstr "Bestelbaar"
 #: model:res.groups,name:bbc_sale.group_show_cost_price_on_sales_order
 msgid "Show cost price on Sales order lines"
 msgstr "Kostprijs weergeven op verkooporderregels"
+
+#. module: bbc_sale
+#: view:account.invoice:bbc_sale.view_account_invoice_filter
+msgid "Country Partner"
+msgstr "Land Relatie"

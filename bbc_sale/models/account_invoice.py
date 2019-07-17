@@ -1,10 +1,12 @@
-from openerp import models, api
+from openerp import models, fields, api
 from openerp.exceptions import Warning as UserError
 from openerp.tools.translate import _
 
 
 class Invoice(models.Model):
     _inherit = 'account.invoice'
+
+    country_id = fields.Many2one(related='partner_id.country_id')
 
     @api.multi
     def confirm_paid(self):
