@@ -6,7 +6,8 @@ from openerp.tools.translate import _
 class Invoice(models.Model):
     _inherit = 'account.invoice'
 
-    country_id = fields.Many2one(related='partner_id.country_id')
+    country_id = fields.Many2one(
+        related='partner_id.country_id', string='Country Partner')
 
     @api.multi
     def confirm_paid(self):
