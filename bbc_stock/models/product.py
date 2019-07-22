@@ -63,8 +63,9 @@ class Product(models.Model):
                 continue
             dates = []
             for line in bom.bom_line_ids:
-                if (line.attribute_value_ids <= product.attribute_value_ids):
-                    dates.append(max_date_product(line.product_id))
+                if line.attribute_value_ids <= product.attribute_value_ids:
+                    if line.product_id.virtual_available - line.product_id.incoming_qty <= 0:
+                        dates.append(max_date_product(line.product_id))
             product.max_incoming_stock_date = max(dates) if dates else today
 
     @api.model
