@@ -20,6 +20,8 @@ class MrpBom(models.Model):
             for variant in variants:
                 avail = []
                 var_eol = []
+                mage_product_mapping = self.env['magento.product'].search([
+                    ('oe_product_id', 'in', variant.ids)])
                 for line in bom.bom_line_ids:
                     if (line.attribute_value_ids <=
                             variant.attribute_value_ids):
@@ -37,6 +39,7 @@ class MrpBom(models.Model):
                         variant.default_code or variant.name,
                         variant.x_availability, x_availability)
                     variant.write({'x_availability': x_availability})
+                    mage_product_mapping.write({'stock_need_sync': True})
                 if variant.variant_eol != var_eol:
                     variant.write({'variant_eol': variant_eol})
         return all_variants
