@@ -19,5 +19,17 @@
             </field>
         </record>
 
+        <!-- Filter on country in list view -->
+        <record id="view_account_invoice_filter" model="ir.ui.view">
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="priority" eval="999"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="country_id" string="Country Partner"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>
