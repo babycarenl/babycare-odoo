@@ -219,6 +219,19 @@ class ProductTemplate(models.Model):
             else self.with_context(set_seller_default_delay=True))
         return super(ProductTemplate, self).load(fields, data)
 
+    @api.model
+    @api.returns('self', lambda value: value.id)
+    def create(self, vals):
+        """ Set weight equal to weight_net on import """
+        res = super(ProductTemplate, self).create(vals)
+        if 'weight_net' in vals:
+            res.weight = res.weight_net
+        return res
+
+    @api.onchange('weight_net')
+    def onchange_weight_net(self):
+        self.weight = self.weight_net
+
 
 class Product(models.Model):
     _inherit = 'product.product'
@@ -396,7 +409,8 @@ class Product(models.Model):
     @api.model
     @api.returns('self', lambda value: value.id)
     def create(self, vals):
-        """ Create zero level orderpoints for each warehouse """
+        """ Create zero level orderpoints for each warehouse.
+            Set weight equal to weight_net on import """
         res = super(Product, self).create(vals)
         if self.env.context.get('no_autocreate_orderpoints'):
             logger.debug('Suppressing autocreation of orderpoints')
@@ -420,6 +434,8 @@ class Product(models.Model):
         if 'variant_eol' not in vals and (
                 res.product_tmpl_id.state in ['end']):
             res.write({'variant_eol': True})
+        if 'weight_net' in vals:
+            res.weight = res.weight_net
         return res
 
     @api.multi
@@ -502,3 +518,7 @@ class Product(models.Model):
                     eol_variants += variant
         if eol_variants:
             eol_variants.write({'variant_eol': self[0].variant_eol})
+
+    @api.onchange('weight_net')
+    def onchange_weight_net(self):
+        self.weight = self.weight_net
