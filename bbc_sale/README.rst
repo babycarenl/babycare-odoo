@@ -51,3 +51,4 @@ Sale customizations for Babycare
 * #3344, added actions for automated emails for orders synchronized from Magento
 * #3394, hide fax and title fields on customer views
 * #3629, make ready and to do default in stock moves opened from the product form view
+* Set weight equal two weight_net onchange of weight_net
