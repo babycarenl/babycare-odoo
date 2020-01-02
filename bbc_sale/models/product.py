@@ -372,7 +372,25 @@ class Product(models.Model):
             ('variant_published', '=', True),
         ])
         if to_unpublish:
-            to_unpublish.write({'variant_published': False})
+            # check if there are eol products with stock left
+            # todo: refactor below code and find out an easier way to check
+            to_be_unpublished = True
+            for product in to_unpublish:
+                if product.type == 'consu':
+                    all_variants = self.env['product.product']
+                    for bom in product.bom_ids:
+                        variants = (bom.product_id or
+                                    bom.product_tmpl_id.product_variant_ids)
+                        all_variants += variants
+                        for variant in variants:
+                            for line in bom.bom_line_ids:
+                                if (line.attribute_value_ids <=
+                                        variant.attribute_value_ids):
+                                    if line.product_id.variant_eol:
+                                        if line.product_id.x_availability > 0:
+                                            to_be_unpublished = False
+            if to_be_unpublished:
+                to_unpublish.write({'variant_published': False})
 
     @api.model
     def update_product_availability(self):
