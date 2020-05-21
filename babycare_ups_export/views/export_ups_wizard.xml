@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- form view for export ups wizard -->
+        <record model="ir.ui.view" id="export_ups_wizard_view">
+            <field name="name">Export UPS Wizard View</field>
+            <field name="model">export.ups.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <span>Export deliveries to UPS</span>
+                    </group>
+                    <footer>
+                        <button name="create_ups_export" string="Export deliveries to UPS" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- more button action that triggers export ups wizard -->
+        <act_window id="babycare_ups_export.action_export_wizard" name="UPS Export Wizard" src_model="stock.picking" res_model="export.ups.wizard" view_mode="form" target="new" multi="True" />
+
+    </data>
+</openerp>
