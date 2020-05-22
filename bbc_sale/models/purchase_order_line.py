@@ -9,6 +9,17 @@ class PurchaseOrderLine(models.Model):
         related='product_id.state')
     virtual_available = fields.Float(
         related='product_id.virtual_available')
+    x_availability = fields.Float(
+        'Free',
+        related='product_id.x_availability',
+        help='Free to sell')
+    website_published = fields.Boolean(
+        related='product_id.website_published')
+    is_component = fields.Boolean(
+        related='product_id.is_component')
+    published_or_part = fields.Boolean(
+        'Site', compute='_compute_published_or_part',
+        help='Is published or is part of a configurable product')
 
     @api.multi
     def onchange_product_id(
@@ -25,5 +36,16 @@ class PurchaseOrderLine(models.Model):
             product = self.env['product.product'].browse(product_id)
             res['value'].update(
                 virtual_available=product.virtual_available,
-                product_state=product.state)
+                product_state=product.state
+            )
         return res
+
+    @api.depends('product_id', 'website_published', 'is_component')
+    def _compute_published_or_part(self):
+        """ Compute if a product is website_published or is_component,
+        and if it is, set published_or_part to True """
+        for product in self:
+            if (product.website_published or product.is_component):
+                product.published_or_part = True
+            else:
+                product.published_or_part = False
