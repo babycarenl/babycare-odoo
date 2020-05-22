@@ -1,7 +1,8 @@
 # coding: utf-8
-import base64
 from openerp import api, fields, models, _
 from openerp.exceptions import Warning as UserError
+
+import base64
 
 
 class ExportPostNLWizard(models.TransientModel):
@@ -29,7 +30,6 @@ class ExportPostNLWizard(models.TransientModel):
                     'Most likely, there is a record with non UTF-8 characters.'
                 )
             )
-        self.filename = 'export_postnl.csv'
 
         return {
             'type': 'ir.actions.act_url',
