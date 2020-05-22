@@ -36,8 +36,7 @@ class PurchaseOrderLine(models.Model):
             product = self.env['product.product'].browse(product_id)
             res['value'].update(
                 virtual_available=product.virtual_available,
-                product_state=product.state
-            )
+                product_state=product.state)
         return res
 
     @api.depends('product_id', 'website_published', 'is_component')
