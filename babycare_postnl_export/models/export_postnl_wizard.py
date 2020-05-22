@@ -1,6 +1,7 @@
 # coding: utf-8
 import base64
 from openerp import api, fields, models, _
+from openerp.exceptions import Warning as UserError
 
 
 class ExportPostNLWizard(models.TransientModel):
@@ -17,8 +18,17 @@ class ExportPostNLWizard(models.TransientModel):
         :return: act_url to /csv/download/stock_picking/%s with csv data in base64.
         """
 
-        data = self._create_csv_data({'picking_ids': self.env.context['active_ids']})
-        self.csv_data = base64.encodestring(data)
+        data = self._create_csv_data(
+            {'picking_ids': self.env.context['active_ids']})
+        try:
+            self.csv_data = base64.encodestring(data)
+        except UnicodeEncodeError:
+            raise UserError(
+                (
+                    'A UnicodeEncodeError occured.\n'
+                    'Most likely, there is a record with non UTF-8 characters.'
+                )
+            )
         self.filename = 'export_postnl.csv'
 
         return {
@@ -74,11 +84,13 @@ class ExportPostNLWizard(models.TransientModel):
                     # CompanyName
                     data.append('')
                     # Surname
-                    data.append(d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else '')
+                    data.append(
+                        d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else '')
                     # FirstName
                     data.append('')
                     # CountryCode
-                    data.append(d.partner_id.country_id.code if d.partner_id.country_id.code else '')
+                    data.append(
+                        d.partner_id.country_id.code if d.partner_id.country_id.code else '')
                     # Street
                     data.append(d.sale_id.partner_shipping_id.street_name if
                                 d.sale_id.partner_shipping_id.street_name else '')
@@ -89,13 +101,17 @@ class ExportPostNLWizard(models.TransientModel):
                     data.append(d.sale_id.partner_shipping_id.street_number_addition if
                                 d.sale_id.partner_shipping_id.street_number_addition else '')
                     # Postcode
-                    data.append(d.sale_id.partner_shipping_id.zip if d.sale_id.partner_shipping_id.zip else '')
+                    data.append(
+                        d.sale_id.partner_shipping_id.zip if d.sale_id.partner_shipping_id.zip else '')
                     # City
-                    data.append(d.sale_id.partner_shipping_id.city if d.sale_id.partner_shipping_id.city else '')
+                    data.append(
+                        d.sale_id.partner_shipping_id.city if d.sale_id.partner_shipping_id.city else '')
                     # Email
-                    data.append(d.sale_id.partner_shipping_id.email if d.sale_id.partner_shipping_id.email else '')
+                    data.append(
+                        d.sale_id.partner_shipping_id.email if d.sale_id.partner_shipping_id.email else '')
                     # MobileNumber
-                    data.append(d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '')
+                    data.append(
+                        d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '')
 
                     # ProductCode
                     nl = self.env.ref('base.nl')
