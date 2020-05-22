@@ -25,7 +25,7 @@ class ExportPostNLWizard(models.TransientModel):
             self.csv_data = base64.encodestring(data)
         except UnicodeEncodeError:
             raise UserError(
-                (
+                _(
                     'A UnicodeEncodeError occured.\n'
                     'Most likely, there is a record with non UTF-8 characters.'
                 )
