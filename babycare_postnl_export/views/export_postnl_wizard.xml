@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- form view for export postnl wizard -->
+        <record model="ir.ui.view" id="export_postnl_wizard_view">
+            <field name="name">Export PostNL Wizard View</field>
+            <field name="model">export.postnl.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <span>Export deliveries to PostNL</span>
+                    </group>
+                    <footer>
+                        <button name="create_postnl_export" string="Export deliveries to PostNL" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- more button action that triggers export postnl wizard -->
+		<act_window id="babycare_postnl_export.action_export_wizard"
+					name="PostNL Export Wizard"
+					src_model="stock.picking"
+					res_model="export.postnl.wizard"
+					view_mode="form"
+					target="new"
+					multi="True" />
+
+    </data>
+</openerp>
