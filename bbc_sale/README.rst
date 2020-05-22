@@ -52,3 +52,4 @@ Sale customizations for Babycare
 * #3394, hide fax and title fields on customer views
 * #3629, make ready and to do default in stock moves opened from the product form view
 * Set weight equal two weight_net onchange of weight_net
+* Add x_availability and boolean 'is published or part of configurable product' to PO lines
