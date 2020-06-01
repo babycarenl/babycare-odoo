@@ -36,14 +36,10 @@ msgid "Country Partner"
 msgstr "Land Relatie"
 
 #. module: bbc_sale
-#: field:purchase.order.line,x_availability:0
+#: view:purchase.order:bbc_sale.purchase_order_form
+#: field:purchase.order.line,virtual_available:0
 msgid "Free"
 msgstr "Vrij"
-
-#. module: bbc_sale
-#: help:purchase.order.line,x_availability:0
-msgid "Free to sell"
-msgstr "Vrij te verkopen"
 
 #. module: bbc_sale
 #: help:purchase.order.line,published_or_part:0
