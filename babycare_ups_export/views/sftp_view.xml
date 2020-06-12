@@ -2,14 +2,14 @@
 <openerp>
     <data>
 
-        <record model="ir.ui.view" id="view_ups_sftp_conf_form">
-            <field name="name">Configure UPS sFTP</field>
-            <field name="model">ups.sftp</field>
+        <record model="ir.ui.view" id="view_sftp_conf_form">
+            <field name="name">Configure SFTP</field>
+            <field name="model">sftp.export</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Configure UPS SFTP">
+                <form string="Configure SFTP">
                     <group col="4" colspan="4">
-                        <separator col="2" string="UPS SFTP configuration"/>
+                        <separator col="2" string="SFTP Configuration"/>
                     </group>
                     <group>
                         <field name="export_type"/>
@@ -25,12 +25,12 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_ups_sftp_conf_tree">
-            <field name="name">Configure UPS sFTP</field>
-            <field name="model">ups.sftp</field>
+        <record model="ir.ui.view" id="view_sftp_conf_tree">
+            <field name="name">Configure SFTP</field>
+            <field name="model">sftp.export</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="Configure UPS SFTP">
+                <tree string="Configure SFTP">
                     <field name="export_type"/>
                     <field name="sftp_user"/>
                     <field name="sftp_host"/>
@@ -39,16 +39,16 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="action_ups_sftp_conf_form">
-            <field name="name">Configure UPS sFTP</field>
-            <field name="res_model">ups.sftp</field>
+        <record model="ir.actions.act_window" id="action_sftp_conf_form">
+            <field name="name">Configure SFTP</field>
+            <field name="res_model">sftp.export</field>
             <field name="view_type">form</field>
             <field name='view_mode'>tree,form</field>
-            <field name='view_id' ref='view_ups_sftp_conf_tree'/>
+            <field name='view_id' ref='view_sftp_conf_tree'/>
         </record>
 
-        <menuitem id="ups_sftp_menu" name="UPS sFTP" parent="base.menu_custom" sequence="0"/>
-        <menuitem parent="ups_sftp_menu" action="action_ups_sftp_conf_form" id="ups_sftp_conf_menu"/>
+        <menuitem id="sftp_menu" name="SFTP" parent="base.menu_custom" sequence="0"/>
+        <menuitem parent="sftp_menu" action="action_sftp_conf_form" id="sftp_conf_menu"/>
 
     </data>
 </openerp>
