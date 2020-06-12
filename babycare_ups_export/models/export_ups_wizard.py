@@ -1,6 +1,7 @@
 # coding: utf-8
 import base64
 from openerp import api, fields, models, _
+from openerp.exceptions import Warning
 
 
 class ExportUPSWizard(models.TransientModel):
@@ -22,8 +23,14 @@ class ExportUPSWizard(models.TransientModel):
         self.csv_data = base64.encodestring(data)
         self.filename = 'export_postnl.csv'
 
-        self.env['sftp.export'].search(
-            []).sftp_ups_export(self.csv_data, 'ups')
+        sftp_model = self.env['sftp.export']
+        ups_connection = sftp_model.search([('export_type', '=', 'ups')])
+        if ups_connection:
+            sftp_model.search([]).sftp_ups_export(self.csv_data, 'ups')
+        else:
+            raise Warning(
+                _("UPS connection does not exist in the SFTP configuration.\n \
+                Please create a configuration in Settings > Technical > SFTP > Configure SFTP"))
 
     @api.model
     def _create_csv_data(self, vals):
