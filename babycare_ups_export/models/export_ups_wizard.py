@@ -1,8 +1,8 @@
 # coding: utf-8
-import base64
 from openerp import api, fields, models, _
 from openerp.exceptions import Warning as UserError
 
+import base64
 import logging
 
 _logger = logging.getLogger(__name__)
