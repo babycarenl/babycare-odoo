@@ -1,34 +1,44 @@
 # coding: utf-8
 import base64
 from openerp import api, fields, models, _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
+
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class ExportUPSWizard(models.TransientModel):
     _name = 'export.ups.wizard'
     csv_data = fields.Binary()
-    filename = fields.Char()
 
     @api.multi
     def create_ups_export(self):
         """
         Method is triggered from create button on wizard.
         It retrieves active_ids from context and creates a csv formatted string.
-        Base64 encoded string is passed a parameter to return act_url
-        :return: act_url to /csv/download/stock_picking/%s with csv data in base64.
+        Base64 encoded string is passed a parameter to sftp_export.
         """
 
         data = self._create_csv_data(
             {'picking_ids': self.env.context['active_ids']})
-        self.csv_data = base64.encodestring(data)
-        self.filename = 'export_postnl.csv'
+        data = data.encode("utf-8")
+        try:
+            self.csv_data = base64.encodestring(data)
+        except UnicodeEncodeError:
+            raise UserError(
+                _(
+                    'A UnicodeEncodeError occured.\n'
+                    'Most likely, there is a record with non UTF-8 characters.'
+                )
+            )
 
         sftp_model = self.env['sftp.export']
         ups_connection = sftp_model.search([('export_type', '=', 'ups')])
         if ups_connection:
-            sftp_model.search([]).sftp_ups_export(self.csv_data, 'ups')
+            sftp_model.search([]).sftp_export(self.csv_data, 'ups')
         else:
-            raise Warning(
+            raise UserError(
                 _("UPS connection does not exist in the SFTP configuration.\n \
                 Please create a configuration in Settings > Technical > SFTP > Configure SFTP"))
 
@@ -37,53 +47,32 @@ class ExportUPSWizard(models.TransientModel):
         """
         Creates csv string based on given picking_ids.
         :param vals: picking_ids obtained via selected ids on stock.picking.
-        :return: csv data as string formatted in PostNL format.
-        """
-
-        """
-        - CompanyOrName
-        - Attention (-)
-        - Street1
-        - Street2 (*)
-        - Street3 (*)
-        - PostalCode
-        - City
-        - State (+)
-        - Country
-        - Tel (-)
-        - DescriptionOfGoods (-)
-        - Reference1 (*)
-        - Reference2 (*)
-        - BillingOption (altijd PP)
-        - UPSservice (zie bijlage Codes import-export)
-        - TypeVerpakking (zie bijlage Codes import-export)
-        - Totaalgewicht
-        - AantalPakketten
-        - BillTransportation (alleen non-EU)(zie bijlage Codes import-export)
-        - BillDuties (alleen non-EU)(zie bijlage Codes import-export)
+        :return: csv data as string formatted in UPS format.
         """
 
         picking_ids = vals.get('picking_ids')
 
         columns = [
-            u'YourReference',
-            u'CompanyName',
-            u'Surname',
-            u'FirstName',
-            u'CountryCode',
-            u'Street',
-            u'HouseNo',
-            u'HouseNoSuffix',
-            u'Postcode',
+            u'CompanyOrName',
+            u'Attention',
+            u'Street1',
+            u'Street2',
+            u'Street3',
+            u'PostalCode',
             u'City',
-            u'Email',
-            u'MobileNumber',
-            u'ProductCode',
-            u'DeliveryToPostnl',
-            u'Barcode',
-            u'CODAmount',
-            u'CODReference',
-            u'InsuredValue'
+            u'State',
+            u'Country',
+            u'Tel',
+            u'DescriptionOfGoods',
+            u'Reference1',
+            u'Reference2',
+            u'BillingOption',
+            u'UPSservice',
+            u'TypeVerpakking',
+            u'Totaalgewicht',
+            u'AantalPakketten',
+            u'BillTransportation',
+            u'BillDuties'
         ]
 
         csv_columns = u'","'.join(columns)
@@ -93,68 +82,108 @@ class ExportUPSWizard(models.TransientModel):
             delivery = self.env['stock.picking'].browse(p)
 
             for d in delivery:
+                data = []
+
+                # CompanyOrName
+                """ check if delivery has company in shipping address,
+                if so: append company to surname, else: surname
+                # if d.sale_id.partner_shipping_id.parent_id:
+                """
+                data.append(
+                    d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else '')
+
+                # Attention (-) (alleen verplicht bij non-domestic zendingen)
+                data.append('')
+
+                # Street1
+                street_name = (d.sale_id.partner_shipping_id.street_name if
+                               d.sale_id.partner_shipping_id.street_name else '')
+                street_number = (d.sale_id.partner_shipping_id.street_number if
+                                 d.sale_id.partner_shipping_id.street_number else '')
+                street_number_addition = (d.sale_id.partner_shipping_id.street_number_addition if
+                                          d.sale_id.partner_shipping_id.street_number_addition else '')
+                data.append(street_name + street_number +
+                            street_number_addition)
+
+                # Street2 (optioneel)
+                data.append('')
+
+                # Street3 (optioneel)
+                data.append('')
+
+                # PostalCode
+                data.append(
+                    d.sale_id.partner_shipping_id.zip if d.sale_id.partner_shipping_id.zip else '')
+
+                # City
+                data.append(
+                    d.sale_id.partner_shipping_id.city if d.sale_id.partner_shipping_id.city else '')
+
+                # State (verplicht bij zendingen naar US)
+                data.append('')
+
+                # Country
+                data.append(
+                    d.partner_id.country_id.code if d.partner_id.country_id.code else '')
+
+                # Tel (alleen verplicht bij non-domestic zendingen)
+                data.append(
+                    d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '')
+
+                # DescriptionOfGoods (alleen verplicht bij non-domestic zendingen)
+                data.append('')
+
+                # Reference1 (optioneel)
+                data.append(d.origin if d.origin else '')
+
+                # Reference2 (optioneel)
+                data.append('')
+
+                # BillingOption (altijd PP)
+                data.append('PP')
+
+                # UPSservice
+                """
+                Service Code (UPS Service Type)
+                EP  Express Plus 
+                ES  Express 
+                SV  Express Saver 
+                EX  Expedited 
+                ST  Standard 
+                ND  Express (NA1)
+                
+                All EU(+NL) shipments is Standard.
+                Non-EU shipments is Express Saver.
+                """
+                europe = self.env.ref('base.europe').country_ids
+                if d.sale_id.partner_shipping_id.country_id in europe:
+                    data.append('ST')
+                else:
+                    data.append('SV')
+
+                # TypeVerpakking (zie bijlage Codes import-export)
+                """
+                Code (Soort verpakking)
+                CP Custom Package (eigen verpakking/doos)
+                EE UPS Express Enveloppe
+                PK UPS Express PAK
+                TB UPS Express Tube
+                """
+                data.append('CP')
+
+                # Totaalgewicht
+                weight = d.weight if d.weight else 0.5
+                data.append(str(weight))
+
+                # AantalPakketten
                 number_of_packages = d.number_of_packages if d.number_of_packages > 1 else 1
-                for _ in range(number_of_packages):
-                    data = []
+                data.append(str(number_of_packages))
 
-                    # YourReference
-                    data.append(d.origin if d.origin else '')
-                    # CompanyName
-                    data.append('')
-                    # Surname
-                    data.append(
-                        d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else '')
-                    # FirstName
-                    data.append('')
-                    # CountryCode
-                    data.append(
-                        d.partner_id.country_id.code if d.partner_id.country_id.code else '')
-                    # Street
-                    data.append(d.sale_id.partner_shipping_id.street_name if
-                                d.sale_id.partner_shipping_id.street_name else '')
-                    # HouseNo
-                    data.append(d.sale_id.partner_shipping_id.street_number if
-                                d.sale_id.partner_shipping_id.street_number else '')
-                    # HouseNoSuffix
-                    data.append(d.sale_id.partner_shipping_id.street_number_addition if
-                                d.sale_id.partner_shipping_id.street_number_addition else '')
-                    # Postcode
-                    data.append(
-                        d.sale_id.partner_shipping_id.zip if d.sale_id.partner_shipping_id.zip else '')
-                    # City
-                    data.append(
-                        d.sale_id.partner_shipping_id.city if d.sale_id.partner_shipping_id.city else '')
-                    # Email
-                    data.append(
-                        d.sale_id.partner_shipping_id.email if d.sale_id.partner_shipping_id.email else '')
-                    # MobileNumber
-                    data.append(
-                        d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '')
+                # BillTransportation (alleen non-EU)
+                data.append('')
 
-                    # ProductCode
-                    nl = self.env.ref('base.nl')
-                    europe = self.env.ref('base.europe').country_ids
-                    if d.sale_id.partner_shipping_id.country_id == nl:
-                        # shipping address in within the Netherlands. ProductCode is NL:
-                        # NL > 3085 (zending NL zonder bezorgopties)
-                        data.append('3085')
-                    elif d.sale_id.partner_shipping_id.country_id in europe:
-                        # shipping address in europe. ProductCode is EU:
-                        # 4940 EU to business – single label
-                        # 4944 EU to consumer – single label
-                        data.append('4944')
+                _logger.debug(data)
 
-                    # DeliveryToPostnl (empty value)
-                    data.append('')
-                    # Barcode (empty value because generated by PostNL)
-                    data.append('')
-                    # CODAmount (empty value)
-                    data.append('')
-                    # CODReference (empty value)
-                    data.append('')
-                    # InsuredValue (empty value)
-                    data.append('')
-
-                    csv_row = u'","'.join(data)
-                    csv += u"\"{}\"\n".format(csv_row)
+                csv_row = u'","'.join(data)
+                csv += u"\"{}\"\n".format(csv_row)
         return csv

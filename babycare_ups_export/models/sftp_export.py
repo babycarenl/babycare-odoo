@@ -82,7 +82,7 @@ class SftpExport(models.Model):
             raise Warning(_(messageTitle + '\n\n' + messageContent))
 
     @api.multi
-    def sftp_ups_export(self, filecontent, type):
+    def sftp_export(self, filecontent, type):
         conf_ids = self.search([('export_type', '=', type)])
         for rec in conf_ids:
             # Create name for file
