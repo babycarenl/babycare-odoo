@@ -1,6 +1,7 @@
 # coding: utf-8
 from openerp import api, fields, models, tools, _
 from openerp.exceptions import Warning
+from io import open
 
 import os
 import time
@@ -91,8 +92,9 @@ class SftpExport(models.Model):
             file_path = os.path.join(file_name)
             # Decode base64 to csv output and write to file
             csv_output = base64.decodestring(filecontent)
-            with open(file_path, 'wb') as fp:
-                fp.write(csv_output.decode("utf-8"))
+            csv_output = csv_output.decode("utf-8")
+            with open(file_path, 'w', encoding='utf-8') as fp:
+                fp.write(csv_output)
 
             try:
                 # store all values in variables
