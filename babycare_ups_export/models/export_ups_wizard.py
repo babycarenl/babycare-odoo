@@ -3,9 +3,6 @@ from openerp import api, fields, models, _
 from openerp.exceptions import Warning as UserError
 
 import base64
-import logging
-
-_logger = logging.getLogger(__name__)
 
 
 class ExportUPSWizard(models.TransientModel):
@@ -120,11 +117,14 @@ class ExportUPSWizard(models.TransientModel):
                     d.sale_id.partner_shipping_id.city if d.sale_id.partner_shipping_id.city else '')
 
                 # State (verplicht bij zendingen naar US)
-                data.append('')
+                if d.sale_id.partner_shipping_id.country_id == "US":
+                    data.append(d.sale_id.partner_shipping_id.state_id.code)
+                else:
+                    data.append('')
 
                 # Country
                 data.append(
-                    d.partner_id.country_id.code if d.partner_id.country_id.code else '')
+                    d.sale_id.partner_shipping_id.country_id.code if d.sale_id.partner_shipping_id.country_id.code else '')
 
                 # Tel (alleen verplicht bij non-domestic zendingen)
                 data.append(
@@ -182,7 +182,8 @@ class ExportUPSWizard(models.TransientModel):
                 # BillTransportation (alleen non-EU)
                 data.append('')
 
-                _logger.debug(data)
+                # BillDuties (alleen non-EU)
+                data.append('')
 
                 csv_row = u'","'.join(data)
                 csv += u"\"{}\"\n".format(csv_row)
