@@ -99,8 +99,8 @@ class ExportUPSWizard(models.TransientModel):
                                  d.sale_id.partner_shipping_id.street_number else '')
                 street_number_addition = (d.sale_id.partner_shipping_id.street_number_addition if
                                           d.sale_id.partner_shipping_id.street_number_addition else '')
-                data.append(street_name + street_number +
-                            street_number_addition)
+                data.append(' '.join([street_name, street_number,
+                                      street_number_addition]))
 
                 # Street2 (optioneel)
                 data.append('')
@@ -117,7 +117,7 @@ class ExportUPSWizard(models.TransientModel):
                     d.sale_id.partner_shipping_id.city if d.sale_id.partner_shipping_id.city else '')
 
                 # State (verplicht bij zendingen naar US)
-                if d.sale_id.partner_shipping_id.country_id == "US":
+                if d.sale_id.partner_shipping_id.country_id.code == "US":
                     data.append(d.sale_id.partner_shipping_id.state_id.code)
                 else:
                     data.append('')
@@ -145,13 +145,13 @@ class ExportUPSWizard(models.TransientModel):
                 # UPSservice
                 """
                 Service Code (UPS Service Type)
-                EP  Express Plus 
-                ES  Express 
-                SV  Express Saver 
-                EX  Expedited 
-                ST  Standard 
+                EP  Express Plus
+                ES  Express
+                SV  Express Saver
+                EX  Expedited
+                ST  Standard
                 ND  Express (NA1)
-                
+
                 All EU(+NL) shipments is Standard.
                 Non-EU shipments is Express Saver.
                 """
