@@ -10,6 +10,7 @@
         'base', 'stock',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/sftp_view.xml',
         'views/export_ups_wizard.xml',
     ],
