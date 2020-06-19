@@ -87,7 +87,7 @@ class ExportUPSWizard(models.TransientModel):
                 if so: append company to surname, else: surname
                 """
                 company_name = (d.sale_id.partner_shipping_id.wk_company +
-                                ',') if d.sale_id.partner_shipping_id.wk_address else ''
+                                ',') if d.sale_id.partner_shipping_id.wk_company else ''
                 customer_name = d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else ''
                 data.append(' '.join([company_name, customer_name]).strip())
 
