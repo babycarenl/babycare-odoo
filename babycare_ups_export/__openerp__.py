@@ -7,7 +7,9 @@
         'codeNext',
     'license': 'LGPL-3',
     'depends': [
-        'base', 'stock',
+        'base',
+        'stock',
+        'wk_base_partner_patch',
     ],
     'data': [
         'security/ir.model.access.csv',
