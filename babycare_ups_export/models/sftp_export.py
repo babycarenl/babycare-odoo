@@ -3,10 +3,10 @@ from openerp import api, fields, models, tools, _
 from openerp.exceptions import Warning
 from io import open
 
-import os
-import time
 import base64
+import os
 import re
+import time
 try:
     import pysftp
 except ImportError:
@@ -26,6 +26,8 @@ class SftpExport(models.Model):
         [('ups', 'UPS')], 'Export Type', required=True)
     export_extension = fields.Selection(
         [('csv', 'CSV')], 'Export Extension', required=True, default='csv')
+    folder = fields.Char('Local Backup Directory', help='Absolute path for storing the backups', required='True',
+                         default='/odoo/backups')
 
     # Columns for external server (SFTP)
     sftp_path = fields.Char(
@@ -86,14 +88,21 @@ class SftpExport(models.Model):
     def sftp_export(self, filecontent, type):
         conf_ids = self.search([('export_type', '=', type)])
         for rec in conf_ids:
+
+            # Create Local Backup Directory if not exists
+            try:
+                if not os.path.isdir(rec.folder):
+                    os.makedirs(rec.folder)
+            except:
+                raise
+
             # Create name for file
-            file_name = '%s.%s' % (time.strftime(
-                '%d_%m_%Y_%H_%M_%S'), rec.export_extension)
-            file_path = os.path.join(file_name)
+            file_name = 'import-%s.%s' % (type.lower(), rec.export_extension)
+            file_path = os.path.join(rec.folder, file_name)
             # Decode base64 to csv output and write to file
             csv_output = base64.decodestring(filecontent)
             csv_output = csv_output.decode("utf-8")
-            with open(file_path, 'w', encoding='utf-8') as fp:
+            with open(file_path, 'w+', encoding='utf-8') as fp:
                 fp.write(csv_output)
 
             try:
@@ -129,7 +138,6 @@ class SftpExport(models.Model):
                             srv.mkdir(currentDir, mode=777)
                             srv.chdir(currentDir)
                             pass
-                # srv.chdir(pathToWriteTo)
                 srv.put(file_path)
 
                 # Close the SFTP session.

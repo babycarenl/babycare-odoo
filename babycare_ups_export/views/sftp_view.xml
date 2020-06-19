@@ -14,6 +14,7 @@
                     <group>
                         <field name="export_type"/>
                         <field name="export_extension"/>
+                        <field name="folder"/>
                         <field name="sftp_host"/>
                         <field name="sftp_port"/>
                         <field name="sftp_user"/>
