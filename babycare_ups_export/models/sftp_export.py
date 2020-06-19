@@ -71,13 +71,14 @@ class SftpExport(models.Model):
                     host=ipHost, username=usernameLogin, password=passwordLogin, port=portHost)
                 srv.close()
                 # We have a success.
-                messageTitle = "Connection Test Succeeded!"
-                messageContent = "Everything seems properly set up for exporting files via SFTP!"
+                messageTitle = _("Connection Test Succeeded!")
+                messageContent = _(
+                    "Everything seems properly set up for exporting files via SFTP!")
             except Exception, e:
-                messageTitle = "Connection Test Failed!"
+                messageTitle = _("Connection Test Failed!")
                 if len(rec.sftp_host) < 8:
-                    messageContent += "\nYour IP address seems to be too short.\n"
-                messageContent += "Here is what we got instead:\n"
+                    messageContent += _("\nYour IP address seems to be too short.\n")
+                messageContent += _("Here is what we got instead:\n")
         if "Failed" in messageTitle:
             raise Warning(_(messageTitle + '\n\n' +
                             messageContent + "%s") % tools.ustr(e))
