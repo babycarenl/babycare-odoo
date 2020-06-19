@@ -26,8 +26,8 @@ class SftpExport(models.Model):
         [('ups', 'UPS')], 'Export Type', required=True)
     export_extension = fields.Selection(
         [('csv', 'CSV')], 'Export Extension', required=True, default='csv')
-    folder = fields.Char('Local Backup Directory', help='Absolute path for storing the backups', required='True',
-                         default='/odoo/backups')
+    folder = fields.Char('Local SFTP File Directory', help='Absolute path for storing the SFTP files', required='True',
+                         default='/odoo/sftp-files')
 
     # Columns for external server (SFTP)
     sftp_path = fields.Char(
