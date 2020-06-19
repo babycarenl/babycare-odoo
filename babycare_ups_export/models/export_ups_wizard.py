@@ -59,6 +59,7 @@ class ExportUPSWizard(models.TransientModel):
             u'City',
             u'State',
             u'Country',
+            u'Email',
             u'Tel',
             u'DescriptionOfGoods',
             u'Reference1',
@@ -84,13 +85,16 @@ class ExportUPSWizard(models.TransientModel):
                 # CompanyOrName
                 """ check if delivery has company in shipping address,
                 if so: append company to surname, else: surname
-                # if d.sale_id.partner_shipping_id.parent_id:
                 """
-                data.append(
-                    d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else '')
+                company_name = (d.sale_id.partner_shipping_id.wk_company +
+                                ',') if d.sale_id.partner_shipping_id.wk_address else ''
+                customer_name = d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else ''
+                data.append(' '.join([company_name, customer_name]).strip())
 
                 # Attention (-) (alleen verplicht bij non-domestic zendingen)
-                data.append('')
+                # Same as the name field
+                data.append(
+                    d.sale_id.partner_shipping_id.name if d.sale_id.partner_shipping_id.name else '')
 
                 # Street1
                 street_name = (d.sale_id.partner_shipping_id.street_name if
@@ -100,7 +104,7 @@ class ExportUPSWizard(models.TransientModel):
                 street_number_addition = (d.sale_id.partner_shipping_id.street_number_addition if
                                           d.sale_id.partner_shipping_id.street_number_addition else '')
                 data.append(' '.join([street_name, street_number,
-                                      street_number_addition]))
+                                      street_number_addition]).strip())
 
                 # Street2 (optioneel)
                 data.append('')
@@ -126,12 +130,17 @@ class ExportUPSWizard(models.TransientModel):
                 data.append(
                     d.sale_id.partner_shipping_id.country_id.code if d.sale_id.partner_shipping_id.country_id.code else '')
 
+                # Email
+                data.append(
+                    d.sale_id.partner_shipping_id.email if d.sale_id.partner_shipping_id.email else '')
+
                 # Tel (alleen verplicht bij non-domestic zendingen)
                 data.append(
                     d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '')
 
                 # DescriptionOfGoods (alleen verplicht bij non-domestic zendingen)
-                data.append('')
+                # Defaults to Babyproducts
+                data.append('Babyproducts')
 
                 # Reference1 (optioneel)
                 data.append(d.origin if d.origin else '')
@@ -180,10 +189,16 @@ class ExportUPSWizard(models.TransientModel):
                 data.append(str(number_of_packages))
 
                 # BillTransportation (alleen non-EU)
-                data.append('')
+                if not d.sale_id.partner_shipping_id.country_id in europe:
+                    data.append('SHP')
+                else:
+                    data.append('')
 
                 # BillDuties (alleen non-EU)
-                data.append('')
+                if not d.sale_id.partner_shipping_id.country_id in europe:
+                    data.append('DDU')
+                else:
+                    data.append('')
 
                 csv_row = u'","'.join(data)
                 csv += u"\"{}\"\n".format(csv_row)
