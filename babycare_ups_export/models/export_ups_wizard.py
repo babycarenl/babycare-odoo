@@ -73,8 +73,8 @@ class ExportUPSWizard(models.TransientModel):
             u'BillDuties'
         ]
 
-        csv_columns = u'","'.join(columns)
-        csv = u"\"{}\"\n".format(csv_columns)
+        csv_columns = u';'.join(columns)
+        csv = u"{}\n".format(csv_columns)
 
         for p in picking_ids:
             delivery = self.env['stock.picking'].browse(p)
@@ -200,6 +200,6 @@ class ExportUPSWizard(models.TransientModel):
                 else:
                     data.append('')
 
-                csv_row = u'","'.join(data)
-                csv += u"\"{}\"\n".format(csv_row)
+                csv_row = u';'.join(data)
+                csv += u"{}\n".format(csv_row)
         return csv
