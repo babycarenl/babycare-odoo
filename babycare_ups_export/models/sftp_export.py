@@ -98,7 +98,7 @@ class SftpExport(models.Model):
                 raise
 
             # Create name for file
-            file_name = 'import-%s.%s' % (type.lower(), rec.export_extension)
+            file_name = 'import%s.%s' % (type.lower(), rec.export_extension)
             file_path = os.path.join(rec.folder, file_name)
             # Decode base64 to csv output and write to file
             csv_output = base64.decodestring(filecontent)
