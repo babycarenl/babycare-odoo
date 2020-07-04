@@ -16,5 +16,6 @@ class StockPickingController(http.Controller):
         filename = 'export_postnl_%s.csv' % time_now.strftime(
             '%d_%m_%Y_%H_%M_%S')
         csv_output = base64.decodestring(csv)
+        csv_output = csv_output.decode("utf-8")
         return request.make_response(csv_output, [('Content-Type', 'application/octet-stream'),
                                                   ('Content-Disposition', 'attachment; filename="%s"' % filename)])

@@ -21,6 +21,7 @@ class ExportPostNLWizard(models.TransientModel):
 
         data = self._create_csv_data(
             {'picking_ids': self.env.context['active_ids']})
+        data = data.encode("utf-8")
         try:
             self.csv_data = base64.encodestring(data)
         except UnicodeEncodeError:
