@@ -70,7 +70,8 @@ class ExportUPSWizard(models.TransientModel):
             u'Totaalgewicht',
             u'AantalPakketten',
             u'BillTransportation',
-            u'BillDuties'
+            u'BillDuties',
+            u'QVN'
         ]
 
         csv_columns = u';'.join(columns)
@@ -136,7 +137,7 @@ class ExportUPSWizard(models.TransientModel):
 
                 # Tel (alleen verplicht bij non-domestic zendingen)
                 data.append(
-                    d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '')
+                    d.sale_id.partner_shipping_id.phone if d.sale_id.partner_shipping_id.phone else '00000')
 
                 # DescriptionOfGoods (alleen verplicht bij non-domestic zendingen)
                 # Defaults to Babyproducts
@@ -199,6 +200,9 @@ class ExportUPSWizard(models.TransientModel):
                     data.append('DDU')
                 else:
                     data.append('')
+
+                # QVN (quantum view notify)
+                data.append('Y')
 
                 csv_row = u';'.join(data)
                 csv += u"{}\n".format(csv_row)
