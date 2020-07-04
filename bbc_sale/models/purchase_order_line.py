@@ -9,10 +9,6 @@ class PurchaseOrderLine(models.Model):
         related='product_id.state')
     virtual_available = fields.Float(
         related='product_id.virtual_available')
-    x_availability = fields.Float(
-        'Free',
-        related='product_id.x_availability',
-        help='Free to sell')
     website_published = fields.Boolean(
         related='product_id.website_published')
     is_component = fields.Boolean(
