@@ -47,7 +47,7 @@
 
         <menuitem
             action="action_picking_late_dest_customer"
-            id="menu_action_picking_late_dest_customer"
+            id="menu_action_picking_late_dest_customer" 
             parent="stock.menu_stock_warehouse_mgmt" sequence="6"/>
 
         <menuitem
@@ -72,6 +72,9 @@
                     <filter name="source_supplier" string="&lt;- Supplier" domain="[('location_id.usage', '=', 'supplier')]"/>
                     <filter name="source_customer" string="&lt;- Customer" domain="[('location_id.usage', '=', 'customer')]"/>
                     <filter name="dest_supplier" string="-&gt; Supplier" domain="[('location_dest_id.usage', '=', 'supplier')]"/>
+                    <separator/>
+                    <filter name="eu_shipments" string="EU" domain="[('is_eu', '=', True)]"/>
+                    <filter name="non_eu_shipments" string="non-EU" domain="[('is_eu', '!=', True)]"/>
                     <separator/>
                 </field>
             </field>
@@ -99,6 +102,9 @@
                 </tree>
                 <field name="min_date" position="after">
                     <field name="max_date" invisible="1"/>
+                </field>
+                <field name="remarks" position="after">
+                    <field name="is_eu" />
                 </field>
             </field>
         </record>

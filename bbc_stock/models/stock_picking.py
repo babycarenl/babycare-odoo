@@ -7,6 +7,11 @@ class Picking(models.Model):
     _name = 'stock.picking'
     _inherit = ['stock.picking', 'ir.needaction_mixin']
 
+    is_eu = fields.Boolean(
+        compute='_compute_is_eu',
+        search='_search_is_eu',
+        string='EU')
+
     @api.multi
     def open_barcode_interface(self):
         """ Open barcode interface in new tab """
@@ -24,6 +29,28 @@ class Picking(models.Model):
                     show_address=True).name_get()[0][1]
 
     partner_address = fields.Text(compute="_get_partner_address")
+    
+    @api.multi
+    def _compute_is_eu(self):
+        for picking in self:
+            country = picking.partner_id.country_id
+            if not country:
+                picking.is_eu = False
+            europe = self.env.ref('base.europe').country_ids
+            if country in europe:
+                picking.is_eu = True
+            else:
+                picking.is_eu = False
+    
+    @api.model
+    def _search_is_eu(self, operator, value):
+        negate = not bool(value)
+        if operator in ('!=', '<>'):
+            negate = not negate
+        europe = self.env.ref('base.europe').country_ids
+        pickings = self.env['stock.picking'].search(
+            [('partner_id.country_id', 'in', europe.ids)])
+        return [('id', 'not in' if negate else 'in', pickings.ids)]
 
     @api.model
     def process_barcode_from_ui(self, picking_id, barcode_str, visible_op_ids):
@@ -80,6 +107,10 @@ class Picking(models.Model):
         if self.env.context.get('search_default_confirmed'):
             domain.append(
                 ('state', 'in', ('confirmed', 'waiting', 'assigned')))
+        if self.env.context.get('search_default_eu_shipments'):
+            domain.append(('is_eu', '=', True))
+        if self.env.context.get('search_default_non_eu_shipments'):
+            domain.append(('is_eu', '!=', True))
         if not domain:
             return [('id', '=', -1)]
         return domain
