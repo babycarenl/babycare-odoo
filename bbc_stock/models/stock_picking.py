@@ -42,14 +42,13 @@ class Picking(models.Model):
             else:
                 picking.is_eu = False
     
-    @api.model
+    @api.multi
     def _search_is_eu(self, operator, value):
         negate = not bool(value)
         if operator in ('!=', '<>'):
             negate = not negate
         europe = self.env.ref('base.europe').country_ids
-        pickings = self.env['stock.picking'].search(
-            [('partner_id.country_id', 'in', europe.ids)])
+        pickings = self.search([('partner_id.country_id', 'in', europe.ids)])
         return [('id', 'not in' if negate else 'in', pickings.ids)]
 
     @api.model
