@@ -103,7 +103,7 @@
                 <field name="min_date" position="after">
                     <field name="max_date" invisible="1"/>
                 </field>
-                <field name="remarks" position="after">
+                <field name="name" position="before">
                     <field name="is_eu" />
                 </field>
             </field>
