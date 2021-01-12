@@ -73,6 +73,9 @@
                     <filter name="source_customer" string="&lt;- Customer" domain="[('location_id.usage', '=', 'customer')]"/>
                     <filter name="dest_supplier" string="-&gt; Supplier" domain="[('location_dest_id.usage', '=', 'supplier')]"/>
                     <separator/>
+                    <filter name="eu_shipments" string="EU" domain="[('is_eu', '=', True)]"/>
+                    <filter name="non_eu_shipments" string="non-EU" domain="[('is_eu', '!=', True)]"/>
+                    <separator/>
                 </field>
             </field>
         </record>
@@ -99,6 +102,9 @@
                 </tree>
                 <field name="min_date" position="after">
                     <field name="max_date" invisible="1"/>
+                </field>
+                <field name="name" position="before">
+                    <field name="is_eu" />
                 </field>
             </field>
         </record>
