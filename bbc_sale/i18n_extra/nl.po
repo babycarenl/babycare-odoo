@@ -45,3 +45,8 @@ msgstr "Vrij"
 #: help:purchase.order.line,published_or_part:0
 msgid "Is published or is part of a configurable product"
 msgstr "Is gepubliceerd of is onderdeel van een configurabel product"
+
+#. module: bbc_sale
+#: view:website:purchase.report_purchaseorder_document
+msgid "Date Requested:"
+msgstr "Leverdatum:"
