@@ -61,12 +61,14 @@ class TrustedShopsApi(models.Model):
         """
         Post an invite to the TrustedShops API.
         """
-        # payload = ''
+        params = self.env['ir.config_parameter']
+        default_timedelay_invitation = int(params.get_param(
+            'trusted_shops_api.default_timedelay_invitation'))
 
         sale_order_created_date_datetime = datetime.datetime.strptime(
             picking.sale_id.create_date, '%Y-%m-%d %H:%M:%S')
         datetime_now = datetime.datetime.now()
-        preferred_sendtime = datetime_now + datetime.timedelta(days = 7)
+        preferred_sendtime = datetime_now + datetime.timedelta(days = default_timedelay_invitation)
 
         magento_shop_code = picking.sale_id.wk_shop.code
         trusted_shops_channel_id = self.env['trusted.shops'].search([

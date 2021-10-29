@@ -23,6 +23,7 @@
                                     <field name="trusted_shops_id" />
                                 </tree>
                             </field>
+                            <field name="default_timedelay_invitation" />
                         </group>
                     </div>
                 </form>
