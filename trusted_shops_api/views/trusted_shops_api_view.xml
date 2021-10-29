@@ -25,6 +25,14 @@
                             </field>
                             <field name="default_timedelay_invitation" />
                             <field name="trusted_shops_country_delay_ids" widget='one2many'>
+                                <form>
+                                    <group>
+                                        <field
+                                            name="country_id"
+                                            options="{'no_create': True, 'no_edit': True}" />
+                                        <field name="delay" />
+                                    </group>
+                                </form>
                                 <tree>
                                     <field name="country_id" />
                                     <field name="delay" />
