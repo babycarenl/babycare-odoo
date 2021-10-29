@@ -25,6 +25,8 @@ class TrustedShopsApi(models.Model):
             'Authorization': 'Bearer ' + access_token,
             'Cache-Control': 'no-cache'
         }
+        _logger.debug("Invites API URL: %s", INVITES_API_URL)
+        _logger.debug("Request payload: %s", payload)
         req = urllib2.Request(INVITES_API_URL, headers=headers)
         # request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
         # try:
