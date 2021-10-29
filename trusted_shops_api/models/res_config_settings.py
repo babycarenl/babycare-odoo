@@ -22,12 +22,19 @@ class ResConfigSettings(models.TransientModel):
         help='Default time delay for sending invitations',
         default=7,
         required=True)
+    trusted_shops_country_delay_ids = fields.Many2many(
+        'trusted.shops.country.delay',
+        string='Specific Delay per Country')
 
     @api.multi
     def get_default_trusted_shops_values(self):
-        trusted_shops_ids = self.env['ir.values'].get_default(
+        ir_values = self.env['ir.values']
+        trusted_shops_ids = ir_values.get_default(
             'res.config.settings',
             'trusted_shops_ids')
+        trusted_shops_country_delay_ids = ir_values.get_default(
+            'res.config.settings',
+            'trusted_shops_country_delay_ids')
         ir_config_parameter = self.env['ir.config_parameter']
         return {
             'trusted_shops_ids': trusted_shops_ids,
@@ -37,14 +44,20 @@ class ResConfigSettings(models.TransientModel):
                 'trusted_shops_api.trusted_shops_api_client_secret') or '',
             'default_timedelay_invitation': literal_eval(ir_config_parameter.get_param(
                 'trusted_shops_api.default_timedelay_invitation') or 7),
+            'trusted_shops_country_delay_ids': trusted_shops_country_delay_ids
         }
 
     @api.multi
     def set_trusted_shops_values(self):
-        self.env['ir.values'].set_default(
+        ir_values = self.env['ir.values']
+        ir_values.set_default(
             'res.config.settings',
             'trusted_shops_ids',
             self.trusted_shops_ids.ids)
+        ir_values.set_default(
+            'res.config.settings',
+            'trusted_shops_country_delay_ids',
+            self.trusted_shops_country_delay_ids.ids)
         ir_config_parameter = self.env['ir.config_parameter']
         ir_config_parameter.set_param(
             'trusted_shops_api.trusted_shops_api_client_id', self.trusted_shops_api_client_id)

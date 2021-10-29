@@ -24,6 +24,12 @@
                                 </tree>
                             </field>
                             <field name="default_timedelay_invitation" />
+                            <field name="trusted_shops_country_delay_ids">
+                                <tree>
+                                    <field name="country_id" />
+                                    <field name="delay" />
+                                </tree>
+                            </field>
                         </group>
                     </div>
                 </form>
