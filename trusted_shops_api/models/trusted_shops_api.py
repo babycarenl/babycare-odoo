@@ -21,10 +21,9 @@ class TrustedShopsApi(models.Model):
         access_token = self._get_access_token()
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + access_token,
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36'
+            'Authorization': 'Bearer ' + access_token
         }
-        request = requests.post(INVITES_API_URL, data=payload, headers=headers)
+        request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
@@ -50,7 +49,7 @@ class TrustedShopsApi(models.Model):
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
         }
-        request = requests.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
+        request = requests.post(REQUEST_TOKEN_URL, data=json.dumps(payload), headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
