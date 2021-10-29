@@ -4,7 +4,6 @@ import datetime
 import json
 import logging
 import requests
-import urllib2
 
 REQUEST_TOKEN_URL = 'https://login.etrusted.com/oauth/token'
 INVITES_API_URL = 'https://api.etrusted.com/invites'
@@ -22,13 +21,9 @@ class TrustedShopsApi(models.Model):
         access_token = self._get_access_token()
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + access_token,
-            'Cache-Control': 'no-cache'
+            'Authorization': 'Bearer ' + access_token
         }
-        _logger.debug("Invites API URL: %s", INVITES_API_URL)
-        _logger.debug("Access token: %s", access_token)
-        _logger.debug("Request payload: %s", payload)
-        request = requests.post(INVITES_API_URL, data="'{}'".format(payload), headers=headers)
+        request = requests.post(INVITES_API_URL, data=payload, headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
