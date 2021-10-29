@@ -18,13 +18,14 @@ class TrustedShopsApi(models.Model):
         """
         Send a request to the TrustedShops API.
         """
-        access_token = self._get_access_token()
+        session = requests.Session()
+        access_token = self._get_access_token(session)
         headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + access_token,
             'Cache-Control': 'no-cache'
         }
-        request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
+        request = session.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
@@ -34,7 +35,7 @@ class TrustedShopsApi(models.Model):
         response = request.json()
         return response
     
-    def _get_access_token(self):
+    def _get_access_token(self, session):
         """
         Get the access token from the TrustedShops API.
         """
@@ -50,7 +51,7 @@ class TrustedShopsApi(models.Model):
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
         }
-        request = requests.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
+        request = session.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
