@@ -27,7 +27,7 @@ class TrustedShopsApi(models.Model):
         }
         _logger.debug("Invites API URL: %s", INVITES_API_URL)
         _logger.debug("Access token: %s", access_token)
-        _logger.debug("Request payload: %s", json.dumps(payload))
+        _logger.debug("Request payload: %s", payload)
         req = urllib2.Request(INVITES_API_URL, headers=headers)
         # request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
         # try:
@@ -36,7 +36,7 @@ class TrustedShopsApi(models.Model):
         #     _logger.debug("TrustedShops API request failed: %s", e)
         #     raise
 
-        response = urllib2.urlopen(req, json.dumps(payload))
+        response = urllib2.urlopen(req, payload)
         return json.load(response)
         # response = request.json()
         # return response
@@ -71,6 +71,7 @@ class TrustedShopsApi(models.Model):
         """
         Post an invite to the TrustedShops API.
         """
+        payload = ''
         sale_order_created_date_datetime = datetime.datetime.strptime(
             picking.sale_id.create_date, '%Y-%m-%d %H:%M:%S')
         datetime_now = datetime.datetime.now()
@@ -90,7 +91,7 @@ class TrustedShopsApi(models.Model):
             ('language', '=', magento_shop_code)
         ]).trusted_shops_id
         
-        payload = {
+        payload = json.dumps({
             "channel": {
                 "id": trusted_shops_channel_id,
                 "type": "user_defined"
@@ -117,7 +118,7 @@ class TrustedShopsApi(models.Model):
                 "preferredSendTime": preferred_sendtime.isoformat("T") + "Z",
                 }
             ]
-        }
+        })
         
         self._request(payload)
         return True
