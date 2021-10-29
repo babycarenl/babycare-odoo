@@ -17,14 +17,14 @@
                         <group>
                             <field name="trusted_shops_api_client_id" />
                             <field name="trusted_shops_api_client_secret" />
-                            <field name="trusted_shops_ids" force_save="1">
+                            <field name="trusted_shops_ids" widget='one2many'>
                                 <tree>
                                     <field name="language" />
                                     <field name="trusted_shops_id" />
                                 </tree>
                             </field>
                             <field name="default_timedelay_invitation" />
-                            <field name="trusted_shops_country_delay_ids">
+                            <field name="trusted_shops_country_delay_ids" widget='one2many'>
                                 <tree>
                                     <field name="country_id" />
                                     <field name="delay" />
