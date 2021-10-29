@@ -1,5 +1,4 @@
 # coding: utf-8
-from ast import literal_eval
 from openerp import api, fields, models
 
 
@@ -42,8 +41,8 @@ class ResConfigSettings(models.TransientModel):
                 'trusted_shops_api.trusted_shops_api_client_id') or '',
             'trusted_shops_api_client_secret': ir_config_parameter.get_param(
                 'trusted_shops_api.trusted_shops_api_client_secret') or '',
-            'default_timedelay_invitation': literal_eval(ir_config_parameter.get_param(
-                'trusted_shops_api.default_timedelay_invitation') or 7),
+            'default_timedelay_invitation': int(ir_config_parameter.get_param(
+                'trusted_shops_api.default_timedelay_invitation')) or 7,
             'trusted_shops_country_delay_ids': trusted_shops_country_delay_ids
         }
 
