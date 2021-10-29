@@ -4,6 +4,7 @@ import datetime
 import json
 import logging
 import requests
+import urllib2
 
 REQUEST_TOKEN_URL = 'https://login.etrusted.com/oauth/token'
 INVITES_API_URL = 'https://api.etrusted.com/invites'
@@ -18,24 +19,26 @@ class TrustedShopsApi(models.Model):
         """
         Send a request to the TrustedShops API.
         """
-        session = requests.Session()
-        access_token = self._get_access_token(session)
+        access_token = self._get_access_token()
         headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + access_token,
             'Cache-Control': 'no-cache'
         }
-        request = session.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
-        try:
-            request.raise_for_status()
-        except requests.exceptions.RequestException as e: 
-            _logger.debug("TrustedShops API request failed: %s", e)
-            raise
+        req = urllib2.Request(INVITES_API_URL, headers=headers)
+        # request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
+        # try:
+        #     request.raise_for_status()
+        # except requests.exceptions.RequestException as e: 
+        #     _logger.debug("TrustedShops API request failed: %s", e)
+        #     raise
 
-        response = request.json()
-        return response
+        response = urllib2.urlopen(req, json.dumps(payload))
+        return json.load(response)
+        # response = request.json()
+        # return response
     
-    def _get_access_token(self, session):
+    def _get_access_token(self):
         """
         Get the access token from the TrustedShops API.
         """
@@ -51,7 +54,7 @@ class TrustedShopsApi(models.Model):
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
         }
-        request = session.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
+        request = requests.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
