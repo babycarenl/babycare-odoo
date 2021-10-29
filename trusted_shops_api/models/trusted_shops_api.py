@@ -21,7 +21,8 @@ class TrustedShopsApi(models.Model):
         access_token = self._get_access_token()
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + access_token
+            'Authorization': 'Bearer ' + access_token,
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36'
         }
         request = requests.post(INVITES_API_URL, data=payload, headers=headers)
         try:
