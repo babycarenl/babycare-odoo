@@ -10,6 +10,7 @@ INVITES_API_URL = 'https://api.etrusted.com/invites'
 
 _logger = logging.getLogger(__name__)
 
+
 class TrustedShopsApi(models.Model):
     _name = 'trusted.shops.api'
 
@@ -60,7 +61,7 @@ class TrustedShopsApi(models.Model):
         """
         Post an invite to the TrustedShops API.
         """
-        payload = ''
+        # payload = ''
 
         sale_order_created_date_datetime = datetime.datetime.strptime(
             picking.sale_id.create_date, '%Y-%m-%d %H:%M:%S')
