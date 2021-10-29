@@ -28,18 +28,15 @@ class TrustedShopsApi(models.Model):
         _logger.debug("Invites API URL: %s", INVITES_API_URL)
         _logger.debug("Access token: %s", access_token)
         _logger.debug("Request payload: %s", payload)
-        req = urllib2.Request(INVITES_API_URL, headers=headers)
-        # request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
-        # try:
-        #     request.raise_for_status()
-        # except requests.exceptions.RequestException as e: 
-        #     _logger.debug("TrustedShops API request failed: %s", e)
-        #     raise
+        request = requests.post(INVITES_API_URL, data="'{}'".format(payload), headers=headers)
+        try:
+            request.raise_for_status()
+        except requests.exceptions.RequestException as e: 
+            _logger.debug("TrustedShops API request failed: %s", e)
+            raise
 
-        response = urllib2.urlopen(req, payload)
-        return json.load(response)
-        # response = request.json()
-        # return response
+        response = request.json()
+        return response
     
     def _get_access_token(self):
         """
