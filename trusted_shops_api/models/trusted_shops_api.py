@@ -23,7 +23,7 @@ class TrustedShopsApi(models.Model):
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + access_token
         }
-        request = requests.post(INVITES_API_URL, data=json.dumps(payload), headers=headers)
+        request = requests.post(INVITES_API_URL, data=payload, headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
@@ -49,7 +49,7 @@ class TrustedShopsApi(models.Model):
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
         }
-        request = requests.post(REQUEST_TOKEN_URL, data=json.dumps(payload), headers=headers)
+        request = requests.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e: 
@@ -82,7 +82,7 @@ class TrustedShopsApi(models.Model):
             ('language', '=', magento_shop_code)
         ]).trusted_shops_id
         
-        payload = json.dumps({
+        payload = {
             "channel": {
                 "id": trusted_shops_channel_id,
                 "type": "user_defined"
@@ -109,7 +109,7 @@ class TrustedShopsApi(models.Model):
                 "preferredSendTime": preferred_sendtime.isoformat("T") + "Z",
                 }
             ]
-        })
+        }
         
         self._request(payload)
         return True
