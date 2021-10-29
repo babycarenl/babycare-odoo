@@ -23,14 +23,15 @@ class TrustedShopsApi(models.Model):
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + access_token
         }
+        request = requests.post(INVITES_API_URL, data=payload, headers=headers)
         try:
-            request = requests.post(INVITES_API_URL, data=payload, headers=headers)
-            response = request.json()
-            return response
+            request.raise_for_status()
         except requests.exceptions.RequestException as e: 
-            _logger.debug("TrustedShops API request failed with code: %r, msg: %r, content: %r",
-                          e.code, e.msg, e.fp.read())
+            _logger.debug("TrustedShops API request failed: %s", e)
             raise
+
+        response = request.json()
+        return response
     
     def _get_access_token(self):
         """
@@ -39,23 +40,24 @@ class TrustedShopsApi(models.Model):
         params = self.env['ir.config_parameter']
         client_id = params.get_param('trusted_shops_api.trusted_shops_api_client_id')
         client_secret = params.get_param('trusted_shops_api.trusted_shops_api_client_secret')
+        payload = {
+            "grant_type": "client_credentials",
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "audience": "https://api.etrusted.com"
+        }
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }
+        request = requests.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
         try:
-            payload = {
-                "grant_type": "client_credentials",
-                "client_id": client_id,
-                "client_secret": client_secret,
-                "audience": "https://api.etrusted.com"
-            }
-            headers = {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            }
-            request = requests.post(REQUEST_TOKEN_URL, data=payload, headers=headers)
-            response = request.json()
-            return response['access_token']
+            request.raise_for_status()
         except requests.exceptions.RequestException as e: 
-            _logger.debug("TrustedShops API request failed with code: %r, msg: %r, content: %r",
-                          e.code, e.msg, e.fp.read())
+            _logger.debug("TrustedShops API request failed: %s", e)
             raise
+        
+        response = request.json()
+        return response['access_token']
     
     def post_invite(self, picking):
         """
