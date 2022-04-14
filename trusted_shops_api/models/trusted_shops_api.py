@@ -93,10 +93,10 @@ class TrustedShopsApi(models.Model):
             "invites": [
                 {
                 "questionnaireTemplate": {
-                    "id": "tpl-qst-1605077d-f768-422d-8fad-809f93d7a18f"
+                    "id": "tpl-qst-baaec16a-7fd6-4815-b119-9aadea3cf986"
                 },
                 "template": {
-                    "id": "tpl-inv-f52b110f-ee37-4305-8cec-ba2d5ab1db8f"
+                    "id": "tpl-inv-f0232e18-bdd4-4465-9de5-03a6f36abb46"
                 },
                 "customer": {
                     "firstName": picking.sale_id.partner_id.name,
