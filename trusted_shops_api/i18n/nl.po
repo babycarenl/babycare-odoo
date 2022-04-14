@@ -1,0 +1,168 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* trusted_shops_api
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-14 12:43+0000\n"
+"PO-Revision-Date: 2022-04-14 12:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: trusted_shops_api
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "Apply"
+msgstr "Toepassen"
+
+#. module: trusted_shops_api
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: trusted_shops_api
+#: field:res.config.settings,trusted_shops_api_client_id:0
+msgid "Client ID"
+msgstr "Client ID"
+
+#. module: trusted_shops_api
+#: help:res.config.settings,trusted_shops_api_client_id:0
+msgid "Client ID from Trusted Shops API"
+msgstr "Client ID van Trusted Shops API"
+
+#. module: trusted_shops_api
+#: field:res.config.settings,trusted_shops_api_client_secret:0
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#. module: trusted_shops_api
+#: help:res.config.settings,trusted_shops_api_client_secret:0
+msgid "Client Secret from Trusted Shops API"
+msgstr "Client Secret van Trusted Shops API"
+
+#. module: trusted_shops_api
+#: field:trusted.shops.country.delay,country_id:0
+msgid "Country"
+msgstr "Land"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,create_uid:0
+#: field:trusted.shops.api,create_uid:0
+#: field:trusted.shops.country.delay,create_uid:0
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,create_date:0
+#: field:trusted.shops.api,create_date:0
+#: field:trusted.shops.country.delay,create_date:0
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: trusted_shops_api
+#: field:res.config.settings,default_timedelay_invitation:0
+msgid "Default Time Delay Invitation"
+msgstr "Standaard tijdvertraging uitnodiging"
+
+#. module: trusted_shops_api
+#: help:res.config.settings,default_timedelay_invitation:0
+msgid "Default time delay for sending invitations"
+msgstr "Standaard tijdvertraging voor het versturen van uitnodigingen"
+
+#. module: trusted_shops_api
+#: field:trusted.shops.country.delay,delay:0
+msgid "Delay"
+msgstr "Vertraging"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,display_name:0
+#: field:trusted.shops.api,display_name:0
+#: field:trusted.shops.country.delay,display_name:0
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,id:0
+#: field:trusted.shops.api,id:0
+#: field:trusted.shops.country.delay,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,language:0
+msgid "Language"
+msgstr "Taal"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,__last_update:0
+#: field:trusted.shops.api,__last_update:0
+#: field:trusted.shops.country.delay,__last_update:0
+msgid "Last Modified on"
+msgstr "Laatst aangepast op"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,write_uid:0
+#: field:trusted.shops.api,write_uid:0
+#: field:trusted.shops.country.delay,write_uid:0
+msgid "Last Updated by"
+msgstr "Laatst aangepast door"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,write_date:0
+#: field:trusted.shops.api,write_date:0
+#: field:trusted.shops.country.delay,write_date:0
+msgid "Last Updated on"
+msgstr "Laatst aangepast op"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_stock_picking
+msgid "Picking List"
+msgstr "Verzamellijst"
+
+#. module: trusted_shops_api
+#: field:res.config.settings,trusted_shops_country_delay_ids:0
+msgid "Specific Delay per Country"
+msgstr "Specifieke vertraging per land"
+
+#. module: trusted_shops_api
+#: field:res.config.settings,trusted_shops_ids:0
+#: view:stock.picking:trusted_shops_api.trusted_shops_view_picking_form
+msgid "Trusted Shops"
+msgstr "Trusted Shops"
+
+#. module: trusted_shops_api
+#: model:ir.ui.menu,name:trusted_shops_api.menu_trusted_shops_config
+msgid "Trusted Shops API"
+msgstr "Trusted Shops API"
+
+#. module: trusted_shops_api
+#: model:ir.actions.act_window,name:trusted_shops_api.action_trusted_shops_config_form
+#: model:ir.ui.menu,name:trusted_shops_api.menu_trusted_shops_config_view
+msgid "Trusted Shops Config"
+msgstr "Trusted Shops Configuratie"
+
+#. module: trusted_shops_api
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "Trusted Shops configuration"
+msgstr "Trusted Shops configuration"
+
+#. module: trusted_shops_api
+#: field:trusted.shops,trusted_shops_id:0
+msgid "Trusted shops id"
+msgstr "Trusted shops id"
+
+#. module: trusted_shops_api
+#: field:stock.picking,trustedshops_invitation:0
+msgid "Trustedshops invitation"
+msgstr "Trustedshops uitnodiging"
+
+#. module: trusted_shops_api
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "or"
+msgstr "of"
+
