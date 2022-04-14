@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="crm"
+                  inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/bbc_crm/static/src/js/view_lead_delete.js" />
+            </xpath>
+        </template>
+    </data>
+</openerp>
