@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 12:43+0000\n"
-"PO-Revision-Date: 2022-04-14 12:43+0000\n"
+"POT-Creation-Date: 2022-04-15 12:05+0000\n"
+"PO-Revision-Date: 2022-04-15 12:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,22 @@ msgstr "Client Secret"
 #: help:res.config.settings,trusted_shops_api_client_secret:0
 msgid "Client Secret from Trusted Shops API"
 msgstr "Client Secret van Trusted Shops API"
+
+#. module: trusted_shops_api
+#: model:ir.actions.act_window,name:trusted_shops_api.action_trusted_shops_config_form
+#: model:ir.ui.menu,name:trusted_shops_api.menu_trusted_shops_config_view
+msgid "Configuration"
+msgstr "Instellingen"
+
+#. module: trusted_shops_api
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "Configure Delay per Country"
+msgstr "Configureer vertraging per land"
+
+#. module: trusted_shops_api
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "Configure Trusted Shops"
+msgstr "Configureer Trusted Shops"
 
 #. module: trusted_shops_api
 #: field:trusted.shops.country.delay,country_id:0
@@ -125,13 +141,9 @@ msgid "Picking List"
 msgstr "Verzamellijst"
 
 #. module: trusted_shops_api
-#: field:res.config.settings,trusted_shops_country_delay_ids:0
-msgid "Specific Delay per Country"
-msgstr "Specifieke vertraging per land"
-
-#. module: trusted_shops_api
-#: field:res.config.settings,trusted_shops_ids:0
+#: model:ir.actions.act_window,name:trusted_shops_api.action_trusted_shops
 #: view:stock.picking:trusted_shops_api.trusted_shops_view_picking_form
+#: view:trusted.shops:trusted_shops_api.view_trusted_shops_tree_view
 msgid "Trusted Shops"
 msgstr "Trusted Shops"
 
@@ -141,20 +153,20 @@ msgid "Trusted Shops API"
 msgstr "Trusted Shops API"
 
 #. module: trusted_shops_api
-#: model:ir.actions.act_window,name:trusted_shops_api.action_trusted_shops_config_form
-#: model:ir.ui.menu,name:trusted_shops_api.menu_trusted_shops_config_view
-msgid "Trusted Shops Config"
-msgstr "Trusted Shops Configuratie"
+#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
+msgid "Trusted Shops Configuration"
+msgstr "Configuratie"
 
 #. module: trusted_shops_api
-#: view:res.config.settings:trusted_shops_api.view_trusted_shops_config_form
-msgid "Trusted Shops configuration"
-msgstr "Trusted Shops configuration"
+#: model:ir.actions.act_window,name:trusted_shops_api.action_trusted_shops_delay_per_country_form
+#: view:trusted.shops.country.delay:trusted_shops_api.view_trusted_shops_delay_per_country_tree_view
+msgid "Trusted Shops Delay per Country"
+msgstr "Trusted Shops vertraging per land"
 
 #. module: trusted_shops_api
 #: field:trusted.shops,trusted_shops_id:0
 msgid "Trusted shops id"
-msgstr "Trusted shops id"
+msgstr "Trusted Shops ID"
 
 #. module: trusted_shops_api
 #: field:stock.picking,trustedshops_invitation:0
