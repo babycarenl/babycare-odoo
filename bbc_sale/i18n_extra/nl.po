@@ -48,5 +48,5 @@ msgstr "Is gepubliceerd of is onderdeel van een configurabel product"
 
 #. module: bbc_sale
 #: view:website:purchase.report_purchaseorder_document
-msgid "Date Requested:"
-msgstr "Leverdatum:"
+msgid "Desired delivery date:"
+msgstr "Gewenste leverdatum:"

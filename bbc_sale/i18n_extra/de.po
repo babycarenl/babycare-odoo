@@ -17,5 +17,5 @@ msgstr ""
 
 #. module: bbc_sale
 #: view:website:purchase.report_purchaseorder_document
-msgid "Date Requested:"
-msgstr "Datum Anfrage:"
+msgid "Desired delivery date:"
+msgstr "Gewünschtes Lieferdatum"
