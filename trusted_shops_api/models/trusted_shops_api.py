@@ -82,6 +82,9 @@ class TrustedShopsApi(models.Model):
         trusted_shops_channel_id = self.env['trusted.shops'].search([
             ('language', '=', magento_shop_code)
         ]).trusted_shops_id
+
+        locale = picking.sale_id.partner_id.lang if \
+            picking.sale_id.partner_id.lang != 'en_US' else 'en_150'
         
         payload = json.dumps({
             "channel": {
@@ -102,7 +105,7 @@ class TrustedShopsApi(models.Model):
                     "firstName": picking.sale_id.partner_id.name,
                     "email": picking.sale_id.partner_id.email,
                 },
-                "locale": picking.sale_id.partner_id.lang,
+                "locale": locale,
                 "transaction": {
                     "reference": picking.sale_id.name,
                     "date": sale_order_created_date_datetime.isoformat("T") + "Z"
