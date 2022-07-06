@@ -116,11 +116,15 @@ class ExportPostNLWizard(models.TransientModel):
 
                     # ProductCode
                     nl = self.env.ref('base.nl')
+                    be = self.env.ref('base.be')
                     europe = self.env.ref('base.europe').country_ids
                     if d.sale_id.partner_shipping_id.country_id == nl:
                         # shipping address in within the Netherlands. ProductCode is NL:
                         # NL > 3085 (zending NL zonder bezorgopties)
                         data.append('3085')
+                    elif d.sale_id.partner_shipping_id.country_id == be:
+                        # shipping address in Belgium. ProductCode is BE: 4946.
+                        data.append('4946')
                     elif d.sale_id.partner_shipping_id.country_id in europe:
                         # shipping address in europe. ProductCode is EU:
                         # 4940 EU to business – single label
