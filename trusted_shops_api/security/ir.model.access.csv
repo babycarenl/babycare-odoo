@@ -1,7 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_trusted_shops_sales_manager","trusted.shops","model_trusted_shops","base.group_sale_manager",1,1,1,1
-"access_trusted_shops_public","trusted.shops.public","model_trusted_shops",,1,0,0,0
-"access_trusted_shops_api_sales_manager","trusted.shops.api","model_trusted_shops_api","base.group_sale_manager",1,1,1,1
-"access_trusted_shops_api_public","trusted.shops.api.public","model_trusted_shops_api",,1,0,0,0
-"access_trusted_shops_country_delay_sales_manager","trusted.shops.country.delay","model_trusted_shops_country_delay","base.group_sale_manager",1,1,1,1
-"access_trusted_shops_country_delay_public","trusted.shops.country.delay.public","model_trusted_shops_country_delay",,1,0,0,0
