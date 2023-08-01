@@ -1,3 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"sftp_export.access_sftp_export_system","sftp.export","model_sftp_export","base.group_system",1,1,1,1
-"sftp_export.access_sftp_export_public","sftp.export.public","model_sftp_export",,1,0,0,0
