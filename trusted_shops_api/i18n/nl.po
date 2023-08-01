@@ -1,0 +1,189 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* trusted_shops_api
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-01 19:06+0000\n"
+"PO-Revision-Date: 2023-08-01 19:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_res_config_settings__trusted_shops_client_id
+#: model:ir.model.fields,field_description:trusted_shops_api.field_website__trusted_shops_client_id
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.res_config_settings_view_form
+msgid "Client ID"
+msgstr "Client ID"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,help:trusted_shops_api.field_res_config_settings__trusted_shops_client_id
+msgid "Client ID from Trusted Shops"
+msgstr "Client ID van Trusted Shops"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_res_config_settings__trusted_shops_client_secret
+#: model:ir.model.fields,field_description:trusted_shops_api.field_website__trusted_shops_client_secret
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,help:trusted_shops_api.field_res_config_settings__trusted_shops_client_secret
+msgid "Client Secret from Trusted Shops"
+msgstr "Client Secret van Trusted Shops"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
+
+#. module: trusted_shops_api
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.res_config_settings_view_form
+msgid "Configure Trusted Shops"
+msgstr "Configureer Trusted Shops"
+
+#. module: trusted_shops_api
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.res_config_settings_view_form
+msgid "Configure delay per country"
+msgstr "Configureer vertraging per land"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__country_id
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_country_delay_view_tree
+msgid "Country"
+msgstr "Land"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__create_uid
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api__create_uid
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__create_date
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api__create_date
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__delay
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_country_delay_view_tree
+msgid "Delay"
+msgstr "Vertraging"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__display_name
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api__display_name
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__id
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api__id
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__id
+msgid "ID"
+msgstr "ID"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__language_id
+msgid "Language"
+msgstr "Taal"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops____last_update
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api____last_update
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__write_uid
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api__write_uid
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__write_uid
+msgid "Last Updated by"
+msgstr "Laatst aangepast door"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__write_date
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_api__write_date
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__write_date
+msgid "Last Updated on"
+msgstr "Laatst aangepast op"
+
+#. module: trusted_shops_api
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.res_config_settings_view_form
+msgid "Send invites to your customer to review their purchase"
+msgstr "Stuur uitnodigingen naar uw klant om hun aankoop te beoordelen"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_res_config_settings__standard_timedelay_invitation
+#: model:ir.model.fields,field_description:trusted_shops_api.field_website__trusted_shops_standard_timedelay_invitation
+msgid "Standard Time Delay Invitation"
+msgstr "Standaard tijdsvertraging uitnodiging"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,help:trusted_shops_api.field_res_config_settings__standard_timedelay_invitation
+msgid "Standard time delay for sending invitations"
+msgstr "Standaard tijdsvertraging voor het sturen van uitnodigingen"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_stock_picking
+msgid "Transfer"
+msgstr "Overdracht"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_res_config_settings__has_trusted_shops
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_view_form
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_view_tree
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.view_picking_out_form_carrier_file
+msgid "Trusted Shops"
+msgstr "Trusted Shops"
+
+#. module: trusted_shops_api
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_country_delay_view_form
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_country_delay_view_tree
+msgid "Trusted Shops Country Delay"
+msgstr "Trusted Shops vertraging per land"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__trusted_shops_id
+#: model_terms:ir.ui.view,arch_db:trusted_shops_api.trusted_shops_api_trusted_shops_view_tree
+msgid "Trusted Shops ID"
+msgstr "Trusted Shops ID"
+
+#. module: trusted_shops_api
+#: model:ir.model.fields,field_description:trusted_shops_api.field_stock_picking__trustedshops_invitation
+msgid "Trustedshops Invitation"
+msgstr "Trusted Shops uitnodiging"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_website
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops__website_id
+#: model:ir.model.fields,field_description:trusted_shops_api.field_trusted_shops_country_delay__website_id
+msgid "Website"
+msgstr "website"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_trusted_shops
+msgid "trusted.shops"
+msgstr "trusted.shops"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_trusted_shops_api
+msgid "trusted.shops.api"
+msgstr "trusted.shops.api"
+
+#. module: trusted_shops_api
+#: model:ir.model,name:trusted_shops_api.model_trusted_shops_country_delay
+msgid "trusted.shops.country.delay"
+msgstr "trusted.shops.country.delay"
