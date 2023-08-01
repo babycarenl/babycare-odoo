@@ -23,7 +23,7 @@ class TrustedShopsApi(models.Model):
             "Content-Type": "application/json",
             "Authorization": "Bearer " + access_token,
         }
-        # request = requests.post(INVITES_API_URL, data=payload, headers=headers)
+        request = requests.post(INVITES_API_URL, data=payload, headers=headers)
         try:
             request.raise_for_status()
         except requests.exceptions.RequestException as e:
