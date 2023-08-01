@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.website.trusted.shops</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div id="website_email_marketing" position="after">
+                <h2>Trusted Shops</h2>
+                <div class="row mt16 o_settings_container" id="div_website_trusted_shops" attrs="{'invisible': [('website_id', '=', False)]}">
+                    <div class="col-xs-12 col-lg-6 o_setting_box" id="trusted_shops_settings">
+                        <div class="o_setting_left_pane">
+                            <field name="has_trusted_shops"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="has_trusted_shops"/>
+                            <div class="text-muted">
+                                Send invites to your customer to review their purchase
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('has_trusted_shops', '=', False)]}">
+                                <div class="row mt16">
+                                    <label class="o_light_label col-lg-3" string="Client ID" for="trusted_shops_client_id"/>
+                                    <field name="trusted_shops_client_id" attrs="{'required': [('has_trusted_shops', '=', True)]}" />
+                                </div>
+                                <div class="row">
+                                    <label class="o_light_label col-lg-3" for="trusted_shops_client_secret"/>
+                                    <field name="trusted_shops_client_secret" attrs="{'required': [('has_trusted_shops', '=', True)]}" />
+                                </div>
+                                <div class="row">
+                                    <label class="o_light_label col-lg-3" for="standard_timedelay_invitation"/>
+                                    <field name="standard_timedelay_invitation" attrs="{'required': [('has_trusted_shops', '=', True)]}" />
+                                </div>
+                                <div class="mt8">
+                                    <button name="action_trusted_shops" type="object" icon="fa-arrow-right" class="btn-link">
+                                        Configure Trusted Shops
+                                    </button>
+                                </div>
+                                <div class="mt8">
+                                    <button name="action_trusted_shops_country_delay" type="object" icon="fa-arrow-right" class="btn-link">
+                                        Configure delay per country
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
