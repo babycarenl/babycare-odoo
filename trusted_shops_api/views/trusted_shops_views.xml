@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="trusted_shops_api_trusted_shops_view_tree" model="ir.ui.view">
+        <field name="name">trusted_shops_api.trusted_shops.view.tree</field>
+        <field name="model">trusted.shops</field>
+        <field name="arch" type="xml">
+            <tree string="Trusted Shops">
+                <field name="trusted_shops_id" string="Trusted Shops ID"/>
+                <field name="language_id" />
+                <field name="website_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="trusted_shops_api_trusted_shops_view_form" model="ir.ui.view">
+        <field name="name">trusted_shops_api.trusted_shops.view.form</field>
+        <field name="model">trusted.shops</field>
+        <field name="arch" type="xml">
+            <form string="Trusted Shops">
+                <sheet>
+                    <group>
+                        <field name="trusted_shops_id" />
+                        <field name="language_id" options="{'no_create': True, 'no_open': True}" />
+                        <field name="website_id" options="{'no_open': True}" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="trusted_shops_api_trusted_shops_country_delay_view_tree" model="ir.ui.view">
+        <field name="name">trusted_shops_api.trusted_shops_country_delay.view.tree</field>
+        <field name="model">trusted.shops.country.delay</field>
+        <field name="arch" type="xml">
+            <tree string="Trusted Shops Country Delay">
+                <field name="country_id" string="Country"/>
+                <field name="delay" string="Delay"/>
+                <field name="website_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="trusted_shops_api_trusted_shops_country_delay_view_form" model="ir.ui.view">
+        <field name="name">trusted_shops_api.trusted_shops_country_delay.view.form</field>
+        <field name="model">trusted.shops.country.delay</field>
+        <field name="arch" type="xml">
+            <form string="Trusted Shops Country Delay">
+                <sheet>
+                    <group>
+                        <field name="country_id" options="{'no_create': True, 'no_open': True}" />
+                        <field name="delay" />
+                        <field name="website_id" options="{'no_open': True}" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
